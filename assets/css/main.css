@@ -1785,7 +1785,7 @@
 	}
 
 	a {
-		color: #F64747;
+		color: #0F88C3;
 	}
 
 	strong, b {
@@ -2027,7 +2027,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #F64747;
+			background-color: #0F88C3;
 			color: #ffffff !important;
 		}
 
@@ -2413,8 +2413,8 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #F64747;
-			box-shadow: 0 0 0 1px #F64747;
+			border-color: #0F88C3;
+			box-shadow: 0 0 0 1px #0F88C3;
 		}
 
 	.select-wrapper:before {
@@ -2434,15 +2434,15 @@
 
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
-		background-color: #F64747;
-		border-color: #F64747;
+		background-color: #0F88C3;
+		border-color: #0F88C3;
 		color: #ffffff;
 	}
 
 	input[type="checkbox"]:focus + label:before,
 	input[type="radio"]:focus + label:before {
-		border-color: #F64747;
-		box-shadow: 0 0 0 1px #F64747;
+		border-color: #0F88C3;
+		box-shadow: 0 0 0 1px #0F88C3;
 	}
 
 	::-webkit-input-placeholder {
@@ -2844,7 +2844,7 @@
 	}
 
 		.wrapper.style1 {
-			background-color: #F64747;
+			background-color: #0F88C3;
 			color: #fdd1d1;
 		}
 
@@ -2933,7 +2933,7 @@
 					.wrapper.style1 input[type="button"].alt.icon:before,
 					.wrapper.style1 button.alt.icon:before,
 					.wrapper.style1 .button.alt.icon:before {
-						color: #fbb5b5;
+						color: #b5e8fb;
 					}
 
 				.wrapper.style1 input[type="submit"].special,
@@ -2942,7 +2942,7 @@
 				.wrapper.style1 button.special,
 				.wrapper.style1 .button.special {
 					background-color: #ffffff;
-					color: #F64747 !important;
+					color: #0F88C3 !important;
 				}
 
 			.wrapper.style1 label {
@@ -2986,7 +2986,7 @@
 			.wrapper.style1 input[type="radio"]:checked + label:before {
 				background-color: #ffffff;
 				border-color: #ffffff;
-				color: #F64747;
+				color: #0F88C3;
 			}
 
 			.wrapper.style1 input[type="checkbox"]:focus + label:before,
@@ -2996,23 +2996,23 @@
 			}
 
 			.wrapper.style1 ::-webkit-input-placeholder {
-				color: #fbb5b5 !important;
+				color: #b5e8fb !important;
 			}
 
 			.wrapper.style1 :-moz-placeholder {
-				color: #fbb5b5 !important;
+				color: #b5e8fb !important;
 			}
 
 			.wrapper.style1 ::-moz-placeholder {
-				color: #fbb5b5 !important;
+				color: #b5e8fb !important;
 			}
 
 			.wrapper.style1 :-ms-input-placeholder {
-				color: #fbb5b5 !important;
+				color: #b5e8fb !important;
 			}
 
 			.wrapper.style1 .formerize-placeholder {
-				color: #fbb5b5 !important;
+				color: #b5e8fb !important;
 			}
 
 			.wrapper.style1 ul.alt li {
@@ -3020,7 +3020,7 @@
 			}
 
 			.wrapper.style1 header p {
-				color: #fbb5b5;
+				color: #b5e8fb;
 			}
 
 			.wrapper.style1 table tbody tr {
@@ -3057,7 +3057,7 @@
 			}
 
 			.wrapper.style2 a {
-				color: #F64747;
+				color: #0F88C3;
 			}
 
 			.wrapper.style2 strong, .wrapper.style2 b {
@@ -3129,7 +3129,7 @@
 				.wrapper.style2 input[type="button"].special,
 				.wrapper.style2 button.special,
 				.wrapper.style2 .button.special {
-					background-color: #F64747;
+					background-color: #0F88C3;
 					color: #ffffff !important;
 				}
 
@@ -3167,8 +3167,8 @@
 				.wrapper.style2 input[type="email"]:focus,
 				.wrapper.style2 select:focus,
 				.wrapper.style2 textarea:focus {
-					border-color: #F64747;
-					box-shadow: 0 0 0 1px #F64747;
+					border-color: #0F88C3;
+					box-shadow: 0 0 0 1px #0F88C3;
 				}
 
 			.wrapper.style2 .select-wrapper:before {
@@ -3188,15 +3188,15 @@
 
 			.wrapper.style2 input[type="checkbox"]:checked + label:before,
 			.wrapper.style2 input[type="radio"]:checked + label:before {
-				background-color: #F64747;
-				border-color: #F64747;
+				background-color: #0F88C3;
+				border-color: #0F88C3;
 				color: #ffffff;
 			}
 
 			.wrapper.style2 input[type="checkbox"]:focus + label:before,
 			.wrapper.style2 input[type="radio"]:focus + label:before {
-				border-color: #F64747;
-				box-shadow: 0 0 0 1px #F64747;
+				border-color: #0F88C3;
+				box-shadow: 0 0 0 1px #0F88C3;
 			}
 
 			.wrapper.style2 ::-webkit-input-placeholder {
@@ -3338,7 +3338,7 @@
 
 		#header.alt {
 			top: 0;
-			background: #F64747;
+			background: #0F88C3;
 		}
 
 		#header .logo {
@@ -3467,7 +3467,7 @@
 		-ms-transition: -ms-transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		transition: transform 0.5s ease, box-shadow 0.5s ease, visibility 0.5s;
 		-webkit-overflow-scrolling: touch;
-		background: #f64242;
+		background: #0f88c3;
 		box-shadow: none;
 		color: #ffffff;
 		height: 100%;
@@ -3521,7 +3521,7 @@
 			transition: color 0.2s ease-in-out;
 			-webkit-tap-highlight-color: transparent;
 			border: 0;
-			color: #fbb5b5;
+			color: #b5e8fb;
 			cursor: pointer;
 			display: block;
 			height: 3.25em;
@@ -3629,7 +3629,7 @@
 			line-height: 1.1;
 			font-family: "Lobster", cursive;
 			margin-bottom: .25em;
-			color: rgba(255, 255, 255, 0.75);
+			color: rgba(255, 255, 255, 1);
 			text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
 			text-transform: none;
 		}
@@ -4179,10 +4179,10 @@
 /* Footer */
 
 	#footer {
-		background-color: #F64747;
+		background-color: #0F88C3;
 		color: #fdd1d1;
 		padding: 6em 0 4em 0;
-		background: #F64747;
+		background: #0F88C3;
 	}
 
 		#footer input, #footer select, #footer textarea {
@@ -4270,7 +4270,7 @@
 				#footer input[type="button"].alt.icon:before,
 				#footer button.alt.icon:before,
 				#footer .button.alt.icon:before {
-					color: #fbb5b5;
+					color: #b5e8fb;
 				}
 
 			#footer input[type="submit"].special,
@@ -4279,7 +4279,7 @@
 			#footer button.special,
 			#footer .button.special {
 				background-color: #ffffff;
-				color: #F64747 !important;
+				color: #0F88C3 !important;
 			}
 
 		#footer label {
@@ -4323,7 +4323,7 @@
 		#footer input[type="radio"]:checked + label:before {
 			background-color: #ffffff;
 			border-color: #ffffff;
-			color: #F64747;
+			color: #0F88C3;
 		}
 
 		#footer input[type="checkbox"]:focus + label:before,
@@ -4333,23 +4333,23 @@
 		}
 
 		#footer ::-webkit-input-placeholder {
-			color: #fbb5b5 !important;
+			color: #b5e8fb !important;
 		}
 
 		#footer :-moz-placeholder {
-			color: #fbb5b5 !important;
+			color: #b5e8fb !important;
 		}
 
 		#footer ::-moz-placeholder {
-			color: #fbb5b5 !important;
+			color: #b5e8fb !important;
 		}
 
 		#footer :-ms-input-placeholder {
-			color: #fbb5b5 !important;
+			color: #b5e8fb !important;
 		}
 
 		#footer .formerize-placeholder {
-			color: #fbb5b5 !important;
+			color: #b5e8fb !important;
 		}
 
 		#footer ul.alt li {
@@ -4357,7 +4357,7 @@
 		}
 
 		#footer header p {
-			color: #fbb5b5;
+			color: #b5e8fb;
 		}
 
 		#footer table tbody tr {
