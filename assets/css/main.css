@@ -2489,10 +2489,13 @@
 /* Image */
 
 	.image {
-		border-radius: 4px;
-		border: 0;
+		border-radius: 8px;
+		border: 2px solid #0F88C3;
 		display: inline-block;
 		position: relative;
+		width: 50%;
+		height:40%;
+		background-size: contain;
 	}
 
 		.image img {
