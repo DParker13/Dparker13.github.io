@@ -1698,6 +1698,7 @@
 
 	h2 {
 		font-size: 1.75em;
+		font-style: italic;
 	}
 
 	h3 {
@@ -2542,6 +2543,16 @@
 			.image.main img {
 				width: 100%;
 			}
+			
+/* Embed */
+	.resume embed {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 90%;
+		height: 1010px;
+	}
+
 
 /* List */
 
@@ -4184,7 +4195,7 @@
 	#footer {
 		background-color: #0F88C3;
 		color: #fdd1d1;
-		padding: 6em 0 4em 0;
+		padding: 2em 0 4em 0;
 		background: #0F88C3;
 	}
 
@@ -4362,6 +4373,10 @@
 		#footer header p {
 			color: #b5e8fb;
 		}
+		
+		#footer p {
+			color: #b5e8fb;
+		}
 
 		#footer table tbody tr {
 			border-color: rgba(255, 255, 255, 0.25);
@@ -4392,7 +4407,6 @@
 		}
 
 		#footer h2 {
-			margin-bottom: 2em;
 			text-align: center;
 		}
 
