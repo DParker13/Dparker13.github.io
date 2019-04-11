@@ -3354,9 +3354,37 @@
 			top: 0;
 			background: #0F88C3;
 		}
-
+		
+		#header .list {
+			height: inherit;
+			list-style: none;
+			color: #fff;
+			left: 20%;
+			line-height: inherit;
+			margin: 0;
+			position: absolute;
+			top: 0.25em;
+		}
+		
+			#header .list li {
+				display: inline;
+				font-size: 1.25em;
+				padding: 1em;
+			}
+				#header .list a {
+					font-size: 1em;
+					color: #fff;
+					font-weight: 500;
+					text-decoration: none;
+				}
+				
+				#header .list a:hover {
+					color: #fff;
+				}
+		
 		#header .logo {
 			display: inline-block;
+			font-family: "Lobster", cursive;
 			height: inherit;
 			left: 1.5em;
 			line-height: inherit;
@@ -3367,9 +3395,9 @@
 		}
 
 			#header .logo a {
-				font-size: 1.25em;
+				font-size: 2em;
 				color: #fff;
-				font-weight: 600;
+				font-weight: 700;
 				text-decoration: none;
 			}
 
