@@ -3726,10 +3726,10 @@
 			-webkit-transition: height 0.2s ease;
 			-ms-transition: height 0.2s ease;
 			transition: height 0.2s ease;
-			-moz-animation: more 0.75s ease-out 3s forwards;
-			-webkit-animation: more 0.75s ease-out 3s forwards;
-			-ms-animation: more 0.75s ease-out 3s forwards;
-			animation: more 0.75s ease-out 3s forwards;
+			-moz-animation: more 0.75s ease-out 0.5s forwards;
+			-webkit-animation: more 0.75s ease-out 0.5s forwards;
+			-ms-animation: more 0.75s ease-out 0.5s forwards;
+			animation: more 0.75s ease-out 0.5s forwards;
 			background-color: rgba(255, 255, 255, 0.15);
 			border: 0;
 			border-radius: 1em 1em 0 0;
@@ -3778,14 +3778,14 @@
 			}
 
 		#banner:before {
-			-moz-transition: opacity 3s ease;
-			-webkit-transition: opacity 3s ease;
-			-ms-transition: opacity 3s ease;
-			transition: opacity 3s ease;
-			-moz-transition-delay: 1.25s;
-			-webkit-transition-delay: 1.25s;
-			-ms-transition-delay: 1.25s;
-			transition-delay: 1.25s;
+			-moz-transition: opacity 1s ease;
+			-webkit-transition: opacity 1s ease;
+			-ms-transition: opacity 1s ease;
+			transition: opacity 1s ease;
+			-moz-transition-delay: 0.5s;
+			-webkit-transition-delay: 0.5s;
+			-ms-transition-delay: 0.5s;
+			transition-delay: 0.5s;
 			content: '';
 			display: block;
 			background-color: #000;
@@ -3837,10 +3837,10 @@
 		}
 
 		body.is-loading #banner .inner {
-			-moz-transform: scale(0.99);
-			-webkit-transform: scale(0.99);
-			-ms-transform: scale(0.99);
-			transform: scale(0.99);
+			-moz-transform: scale(0.90);
+			-webkit-transform: scale(0.90);
+			-ms-transform: scale(0.90);
+			transform: scale(0.90);
 			opacity: 0;
 		}
 
