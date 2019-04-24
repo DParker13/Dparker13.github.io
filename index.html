@@ -106,6 +106,10 @@
 					<div align="center">
 						<p>Email: <a href="mailto:danielparker134@gmail.com">danielparker134@gmail.com</a></p>
 					</div>
+					
+					<div>
+						<p align="center">Last Modified: <font id="lastModified" align="center" color="white"></font></p>
+					</div>
 
 					<div class="copyright">
 						&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>.
@@ -121,6 +125,13 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			
+			<!-- Last Modified Date -->
+			<script type="text/javascript">
+			onload = function(){
+				document.getElementById("lastModified").innerHTML = document.lastModified.split(" ")[0];
+			}
+			</script>
 
 	</body>
 </html>
