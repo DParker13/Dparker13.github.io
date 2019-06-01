@@ -55,6 +55,19 @@
 							<h2>Dev Log: Tranquility</h2>
 						</header>
 						<div class="content">
+							<div class="desc">
+								<h4>May 31st, 2019:</h4><span> Multithreading</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									I have been <b>working on the project here and there</b> trying to implement some multithreading. At the moment, I have <b>implemented some extremely rough code that utilizes multithreading.</b>
+									The game currently <b>lags even more because of the recent implementation!</b> However, this is <b>because of my poorly optimized code</b> behind the multithreading.
+									With a <b>little more time and better optimization, the multithreading should run as intended</b> and actually speed up performance on the game.
+									Right now, <b>the game opens and reads files on a separate thread</b>, the issue lies with how I receive the information from the separate thread I believe.
+									The <b>game runs the separate loading thread</b>, then it <b>waits to receive the chunks</b> from that thread, this is where the <b>game freezes up for a few seconds</b>.
+									Either this is the issue, or I might have to find a way to also fully load and generate the chunks while on a separate thread. I'll figure it out eventually.
+								</p>
+							</div>
 							<hr>
 							<div class="desc">
 								<h4>May 25th, 2019:</h4><span> Loading Chunks From File</span>
