@@ -3382,13 +3382,6 @@
 			opacity: 1;
 		}
 	}
-	
-	/* Hide Navbar on mobile */
-	@media (max-width:  979px) {
-		#header.list {
-			display: none;
-		}
-	}
 
 	#header {
 		background-color: transparent;
@@ -3403,6 +3396,13 @@
 		width: 100%;
 		z-index: 10001;
 		padding: 0 1.5em;
+	}
+	
+	/* Hide Navbar on mobile */
+	@media (max-width:  979px) {
+		#header {
+			display: none;
+		}
 	}
 
 		#header.alt {
