@@ -3416,12 +3416,11 @@
 			line-height: inherit;
 			margin: 0;
 			position: absolute;
-			top: 0.25em;
 		}
 		
-			/* Hide Navbar on mobile */
-		@media (max-width:  979px) {
-			#header.list {
+		/* Hide Navbar on mobile */
+		@media screen and (max-width:  979px) {
+			#header .list {
 				display: none;
 			}
 		}
