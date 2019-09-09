@@ -3397,13 +3397,6 @@
 		z-index: 10001;
 		padding: 0 1.5em;
 	}
-	
-	/* Hide Navbar on mobile */
-	@media (max-width:  979px) {
-		#header.list {
-			display: none;
-		}
-	}
 
 		#header.alt {
 			top: 0;
@@ -3424,6 +3417,13 @@
 			margin: 0;
 			position: absolute;
 			top: 0.25em;
+		}
+		
+			/* Hide Navbar on mobile */
+		@media (max-width:  979px) {
+			#header.list {
+				display: none;
+			}
 		}
 		
 			#header .list li {
