@@ -1842,6 +1842,21 @@
 		display:inline-block;
 		margin:1em;
 	}
+	
+/* Youtube */
+	.video-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+	}
+	.video-responsive iframe {
+		left:0;
+		top:0;
+		height:100%;
+		width:100%;
+		position:absolute;
+	}
 
 /* Box */
 
@@ -3365,6 +3380,13 @@
 		100% {
 			top: 0;
 			opacity: 1;
+		}
+	}
+	
+	/* Hide Navbar on mobile */
+	@media (max-width:  979px) {
+		#header.list {
+			display: none;
 		}
 	}
 
