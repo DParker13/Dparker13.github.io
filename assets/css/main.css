@@ -3400,7 +3400,7 @@
 	
 	/* Hide Navbar on mobile */
 	@media (max-width:  979px) {
-		#header {
+		#header.list {
 			display: none;
 		}
 	}
