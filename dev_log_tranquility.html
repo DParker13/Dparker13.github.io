@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Development Log Tranquility</title>
+		<title>Dev Log: Tranquility</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -63,6 +63,32 @@
 									So, as the title of the dev log suggests, <b>I am taking a break from this project</b>. Summer has ended and I am <b>back at school</b> trying my best to focus on classes.
 									I have put this project on hold because it requires so much time to actually implement new ideas now. I have <b>moved my focus to the <a href="project_marble.html">marble project</a></b> because it is a 
 									<b>simpler project to work on and off of when I have the time</b>. I'll update this page when I start this project back up, but I will be updating the <a href="dev_log_marble.html">marble dev log</a> for right now.
+								</p>
+							</div>
+							<hr>
+							<div class="desc">
+								<h4>July 3rd, 2019:</h4><span> Temporary Character Model and Animations</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									Today, I have <b>finished a rough version of the character walking animations</b>. I am currently <b>using temporary character sprites from Stardew Valley</b> to just quickly <b>test out how the animations look</b>.
+									<b>Tranquility is heavily inspired from Stardew Valley and I'm now realizing how extremely similar my art is to Stardew Valley</b>. I <b>don't want Tranquility to be known as a Stardew Valley clone</b> in the end. I <b>want my game to have
+									its own personality from others</b>. This recent realization is making <b>want to completely change the art style</b> of the entire game. I still <b>want a pixel feel</b> to the game, but my art skills are lacking a little.
+									I have <b>trouble creating art from scratch and prefer using references</b>, and making my art <b>look extremely realistic to the original photo</b>. My idea was to <b>take pictures of items, isolate them with a greenscreen,
+									and shink the photos down in size to pixelate them</b>. This way, <b>Tranquility will be even more genuine and realistic than other similar games</b>.
+								</p>
+							</div>
+							<hr>
+							<div class="desc">
+								<h4>July 2nd, 2019:</h4><span> Multithreading COMPLETE</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									The day has finally come, and it was a lot quicker than I expected. I managed to <b>throw the whole chunk generator on a separate background thread</b>. The game runs a million times better because of this significant change.
+									What I managed to do was <b>calculate all of the necessary chunk data on the separate thread, add the data to a queue, and then wait for the main thread to dequeue the updated chunk info and just simply activate or deactivate the chunk</b>.
+									This <b>allows for all the heavy calculates to run in the background</b> of the game to keep things running smoothly up front on the main thread. Tranquility <b>now runs at a smoothish 60+ fps even while loading chunks</b>.
+									The game still has a few hick-ups here and there obviously, but I will work them out at a later date. I also <b>had to disable the plants and trees for the map generation at the moment</b>. I am not happy with the current look
+									of the trees and <b>wish to change the look of them</b>.
 								</p>
 							</div>
 							<hr>
