@@ -58,9 +58,9 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									So, as the title of the dev log suggests, <b>I am taking a break from this project</b>. Summer has ended and I am <b>back at school</b> trying my best to focus on classes.
-									I have put this project on hold because it requires so much time to actually implement new ideas now. I have <b>moved my focus to the <a href="project_marble.html">marble project</a></b> because it is a 
-									<b>simpler project to work on and off of when I have the time</b>. I'll update this page when I start this project back up, but I will be updating the <a href="dev_log_marble.html">marble dev log</a> for right now.
+									So, as the title of the dev log suggests, I am taking a break from this project. Summer has ended and I am back at school trying my best to focus on classes.
+									I have put this project on hold because it requires so much time to actually implement new ideas now. I have moved my focus to the <a href="project_marble.html">marble project</a> because it is a 
+									simpler project to work on and off of when I have the time. I'll update this page when I start this project back up, but I will be updating the <a href="dev_log_marble.html">marble dev log</a> for right now.
 								</p>
 							</div>
 							<hr>
@@ -69,11 +69,11 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									Today, I have <b>finished a rough version of the character walking animations</b>. I am currently <b>using temporary character sprites from Stardew Valley</b> to just quickly <b>test out how the animations look</b>.
-									<b>Tranquility is heavily inspired from Stardew Valley and I'm now realizing how extremely similar my art is to Stardew Valley</b>. I <b>don't want Tranquility to be known as a Stardew Valley clone</b> in the end. I <b>want my game to have
-									its own personality from others</b>. This recent realization is making <b>want to completely change the art style</b> of the entire game. I still <b>want a pixel feel</b> to the game, but my art skills are lacking a little.
-									I have <b>trouble creating art from scratch and prefer using references</b>, and making my art <b>look extremely realistic to the original photo</b>. My idea was to <b>take pictures of items, isolate them with a greenscreen,
-									and shink the photos down in size to pixelate them</b>. This way, <b>Tranquility will be even more genuine and realistic than other similar games</b>.
+									Today, I have finished a rough version of the character walking animations. I am currently using temporary character sprites from Stardew Valley to just quickly test out how the animations look.
+									Tranquility is heavily inspired from Stardew Valley and I'm now realizing how extremely similar my art is to Stardew Valley. I don't want Tranquility to be known as a Stardew Valley clone in the end. I want my game to have
+									its own personality from others. This recent realization is making want to completely change the art style of the entire game. I still want a pixel feel to the game, but my art skills are lacking a little.
+									I have trouble creating art from scratch and prefer using references, and making my art look extremely realistic to the original photo. My idea was to take pictures of items, isolate them with a greenscreen,
+									and shink the photos down in size to pixelate them. This way, Tranquility will be even more genuine and realistic than other similar games.
 								</p>
 							</div>
 							<hr>
@@ -82,11 +82,11 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									The day has finally come, and it was a lot quicker than I expected. I managed to <b>throw the whole chunk generator on a separate background thread</b>. The game runs a million times better because of this significant change.
-									What I managed to do was <b>calculate all of the necessary chunk data on the separate thread, add the data to a queue, and then wait for the main thread to dequeue the updated chunk info and just simply activate or deactivate the chunk</b>.
-									This <b>allows for all the heavy calculates to run in the background</b> of the game to keep things running smoothly up front on the main thread. Tranquility <b>now runs at a smoothish 60+ fps even while loading chunks</b>.
-									The game still has a few hick-ups here and there obviously, but I will work them out at a later date. I also <b>had to disable the plants and trees for the map generation at the moment</b>. I am not happy with the current look
-									of the trees and <b>wish to change the look of them</b>.
+									The day has finally come, and it was a lot quicker than I expected. I managed to throw the whole chunk generator on a separate background thread. The game runs a million times better because of this significant change.
+									What I managed to do was calculate all of the necessary chunk data on the separate thread, add the data to a queue, and then wait for the main thread to dequeue the updated chunk info and just simply activate or deactivate the chunk.
+									This allows for all the heavy calculates to run in the background of the game to keep things running smoothly up front on the main thread. Tranquility now runs at a smoothish 60+ fps even while loading chunks.
+									The game still has a few hick-ups here and there obviously, but I will work them out at a later date. I also had to disable the plants and trees for the map generation at the moment. I am not happy with the current look
+									of the trees and wish to change the look of them.
 								</p>
 							</div>
 							<hr>
@@ -95,11 +95,11 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									I have been <b>working on the project here and there</b> trying to implement some multithreading. At the moment, I have <b>implemented some extremely rough code that utilizes multithreading.</b>
-									The game currently <b>lags even more because of the recent implementation!</b> However, this is <b>because of my poorly optimized code</b> behind the multithreading.
-									With a <b>little more time and better optimization, the multithreading should run as intended</b> and actually speed up performance on the game.
-									Right now, <b>the game opens and reads files on a separate thread</b>, the issue lies with how I receive the information from the separate thread I believe.
-									The <b>game runs the separate loading thread</b>, then it <b>waits to receive the chunks</b> from that thread, this is where the <b>game freezes up for a few seconds</b>.
+									I have been working on the project here and there trying to implement some multithreading. At the moment, I have implemented some extremely rough code that utilizes multithreading.
+									The game currently lags even more because of the recent implementation! However, this is because of my poorly optimized code behind the multithreading.
+									With a little more time and better optimization, the multithreading should run as intended and actually speed up performance on the game.
+									Right now, the game opens and reads files on a separate thread, the issue lies with how I receive the information from the separate thread I believe.
+									The game runs the separate loading thread, then it waits to receive the chunks from that thread, this is where the game freezes up for a few seconds.
 									Either this is the issue, or I might have to find a way to also fully load and generate the chunks while on a separate thread. I'll figure it out eventually.
 								</p>
 							</div>
@@ -109,11 +109,11 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									This marks the <b>beginning</b> of the Tranquility development log! I have been working here and there on the project messing with the map generator code improving it every way possible. 
-									I have <b>successfully added the ability for the chunks to be saved into separate files, then reloaded into the world as it generates if a save file exists!</b> 
-									However, I learned the action of loading a chunk from a file is extremely processing heavy, and the <b>game lags significantly when it loads chunks from file</b> instead of generating a new one. 
-									So, I used my Googling skills and might have figured out a solution, <b>Multithreading!</b> I learned that I might be able to create a new thread that runs along with the main thread. 
-									The <b>newly created thread will process the loading and saving (maybe even full generation) of the chunks separately from the main thread</b>, meaning that there will be little to no lag from loading chunks from a file. 
+									This marks the beginning of the Tranquility development log! I have been working here and there on the project messing with the map generator code improving it every way possible. 
+									I have successfully added the ability for the chunks to be saved into separate files, then reloaded into the world as it generates if a save file exists! 
+									However, I learned the action of loading a chunk from a file is extremely processing heavy, and the game lags significantly when it loads chunks from file instead of generating a new one. 
+									So, I used my Googling skills and might have figured out a solution, Multithreading! I learned that I might be able to create a new thread that runs along with the main thread. 
+									The newly created thread will process the loading and saving (maybe even full generation) of the chunks separately from the main thread, meaning that there will be little to no lag from loading chunks from a file. 
 									The issue right now is that I have no idea how to do multithreading so that is my next big hurdle at the moment.
 								</p>
 							</div>
