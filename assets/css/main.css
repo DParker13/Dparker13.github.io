@@ -2546,6 +2546,16 @@
 		height:40%;
 		background-size: contain;
 	}
+	
+	.image.red {
+		border-radius: 8px;
+		border: 2px solid red;
+		display: inline-block;
+		position: relative;
+		width: 50%;
+		height:40%;
+		background-size: contain;
+	}
 
 		.image img {
 			border-radius: 4px;
