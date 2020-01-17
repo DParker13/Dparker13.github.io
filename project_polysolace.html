@@ -46,7 +46,7 @@
 			</nav>
 
 		<!-- Content -->
-			<section id="post" class="wrapper bg-img" data-bg="abstract_bg1.png">
+			<section id="post" class="wrapper bg-img" data-bg="backgrounds/abstract_bg1.png">
 				<div class="inner">
 					<article class="box">
 						<header>
@@ -59,11 +59,11 @@
 							</div>
 							<div>
 								<p>This is a brief look at the current map generation with the animated low poly water surrounding it.</p>
-								<p align="center"><img src="images/poly_solace2.gif" class="image" alt="Map Generation"/></p>
+								<p align="center"><img id="myImg" src="images/poly_solace/poly_solace2.gif" class="image" alt="Map Generation"/></p>
 							</div>
 							<div>
 								<p>This is the chunk of animated low poly water that will surround the world the player interacts with.</p>
-								<p align="center"><img src="images/poly_solace1.gif" class="image" alt="Simple Water Animation"/></p>
+								<p align="center"><img id="myImg" src="images/poly_solace/poly_solace1.gif" class="image" alt="Simple Water Animation"/></p>
 							</div>
 						</div>
 						<footer align="center">
@@ -72,6 +72,13 @@
 					</article>
 				</div>
 			</section>
+			
+		<!-- Modals -->
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>	<!-- The Close Button -->
+				<img class="modal-content" id="img01">	<!-- Modal Content (The Image) -->
+				<div id="caption"></div>	<!-- Modal Caption (Image Text) -->
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -108,6 +115,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/modal.js"></script>
 			
 			<!-- Last Modified Date -->
 			<script type="text/javascript">

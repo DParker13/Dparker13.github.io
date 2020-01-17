@@ -46,7 +46,7 @@
 			</nav>
 
 		<!-- Content -->
-			<section id="post" class="wrapper bg-img" data-bg="abstract_bg2.png">
+			<section id="post" class="wrapper bg-img" data-bg="backgrounds/abstract_bg2.png">
 				<div class="inner">
 					<article class="box">
 						<header>
@@ -54,19 +54,24 @@
 						</header>
 						<div class="content">
 							<p>This project was just a fun little idea that popped into my head from the iconic dvd screensaver hitting the corner of the tv. The idea was that you start out with one dvd screensaver and you gain points every time it hits a wall. When the dvd screensaver hits a corner, it will spawn another one for even more corner hitting fun.</p>
-							<p align="center"><img src="images/dvd1.gif" class="image" alt="gif of dvd game"></img></p>
+							<p align="center"><img id="myImg" src="images/dvd/dvd1.gif" class="image" alt="gif of dvd game"></img></p>
 							<p>When you accumulate over 50 points (maybe changed in the future to more points) then the user can purchase another dvd screensaver that will bounce around the screen.</p>
 							<p>If the player reaches over 50 dvd screensavers on the screen, then they will be combined into a level 2 dvd screensaver. There are 10 dvd levels and each level requires 50 of the same level dvds to level up.</p>
 							<p>I was also going to add another shop where the player can purchase new backgrounds or different themed dvd screensavers with the in-game currency.</p>
 						</div>
-						<footer>
-							<ul class="actions">
-								<li><a href="project1-tranquility.html" class="button alt icon fa-chevron-left"><span class="label">Last</span></a></li>
-							</ul>
+						<footer align="center">
+							<a href="dev_log_dvd.html"><h3>Dvd Dev Log</h3></a>
 						</footer>
 					</article>
 				</div>
 			</section>
+			
+		<!-- Modals -->
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>	<!-- The Close Button -->
+				<img class="modal-content" id="img01">	<!-- Modal Content (The Image) -->
+				<div id="caption"></div>	<!-- Modal Caption (Image Text) -->
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -103,6 +108,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/modal.js"></script>
 			
 			<!-- Last Modified Date -->
 			<script type="text/javascript">

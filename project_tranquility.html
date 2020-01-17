@@ -46,7 +46,7 @@
 			</nav>
 
 		<!-- Content -->
-			<section id="post" class="wrapper bg-img" data-bg="abstract_bg1.png">
+			<section id="post" class="wrapper bg-img" data-bg="backgrounds/abstract_bg1.png">
 				<div class="inner">
 					<article class="box">
 						<header>
@@ -57,14 +57,14 @@
 								<p>This project was heavily inspired by the famous Stardew Valley game. When I initially began this project I was also learning Unity and C# along the way, so it took me around a month to randomly generate a perlin noise image and map different tiles to certain levels of the image.</p>
 							</div>
 							<div>
-								<p align="center"><img src="images/tranquility1.gif" class="image" alt="Map Generator"/></p>
+								<p align="center"><img id="myImg" src="images/tranquility/tranquility1.gif" class="image" alt="Map Generator"/></p>
 							</div>
 							<div>
 								<p>After I got the very basic map creation working, I got to work making the tiles know who their neighbors are. This allows for the tile to change their sprite to match up with similar neighbors so it looks more organic.</p>
 								<p>For Tranquility, I spent a huge amount of time making the sprites and music. Everything you see below was made by me and took around two months to create (music and sprites). Coding the map took upwards of four to five months to complete because I was still learning how Unity worked.</p>
 							</div>
 							<div>
-								<p align="center"><img src="images/tranquility2.gif" class="image" alt="Main Menu"/></p>
+								<p align="center"><img id="myImg" src="images/tranquility/tranquility2.gif" class="image" alt="Main Menu"/></p>
 							</div>
 							<div>
 								<p>Here is the main menu music that I created in LMMS. Surprisingly I made this song within an hour. I guess I got lucky coming up with a simple melody that I enjoyed and felt fit the overall theme.</p>
@@ -91,7 +91,14 @@
 					</article>
 				</div>
 			</section>
-
+		
+		<!-- Modals -->
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>	<!-- The Close Button -->
+				<img class="modal-content" id="img01">	<!-- Modal Content (The Image) -->
+				<div id="caption"></div>	<!-- Modal Caption (Image Text) -->
+			</div>
+		
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="inner">
@@ -126,6 +133,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/modal.js"></script>
 			
 			<!-- Last Modified Date -->
 			<script type="text/javascript">

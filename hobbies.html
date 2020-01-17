@@ -46,7 +46,7 @@
 			</nav>
 
 		<!-- Content -->
-			<section id="post" class="wrapper bg-img" data-bg="abstract_bg1.png">
+			<section id="post" class="wrapper bg-img" data-bg="backgrounds/abstract_bg1.png">
 				<div class="inner">
 					<article class="box">
 						<header>
@@ -57,21 +57,28 @@
 						</div>
 						<div>
 							<div class="row 50% uniform">
-								<div class="4u"><span class="image fit"><img src="images/banner.jpg" alt="Boat in Everglades" /></span></div>
-								<div class="4u"><span class="image fit"><img src="images/Boat.jpg" alt="Boat in the Ocean" /></span></div>
-								<div class="4u$"><span class="image fit"><img src="images/Lake.jpg" alt="Sun Rays at North Park PA Lake" /></span></div>
+								<div class="4u"><img id="myImg" src="images/drone/everglades.jpg" class="image fit" alt="Boat in Everglades" /></div>
+								<div class="4u"><img id="myImg" src="images/drone/boat.jpg" class="image fit" alt="Boat in the Ocean" /></div>
+								<div class="4u$"><img id="myImg" src="images/drone/lake.jpg" class="image fit" alt="Sun Rays at North Park PA Lake" /></div>
 								<!-- Break -->
-								<div class="4u"><span class="image fit"><img src="images/Island.jpg" alt="River Island" /></span></div>
-								<div class="4u"><span class="image fit"><img src="images/Trees2.jpg" alt="Top of Trees" /></span></div>
-								<div class="4u$"><span class="image fit"><img src="images/banner3.jpg" alt="Top of Trees Again" /></span></div>
+								<div class="4u"><img id="myImg" src="images/drone/island.jpg" class="image fit" alt="River Island" /></div>
+								<div class="4u"><img id="myImg" src="images/drone/trees2.jpg" class="image fit" alt="Top of Trees" /></div>
+								<div class="4u$"><img id="myImg" src="images/drone/trees.jpg" class="image fit" alt="Top of Trees Again" /></div>
 								<!-- Break -->
-								<div class="4u"><span class="image fit"><img src="images/banner2.jpg" alt="North Park PA Bridge" /></span></div>
-								<div class="4u"><span class="image fit"><img src="images/Dock.JPG" alt="Hollywood Beach Dock" /></span></div>
+								<div class="4u"><img id="myImg" src="images/drone/bridge.jpg" class="image fit" alt="North Park PA Bridge" /></div>
+								<div class="4u"><img id="myImg" src="images/drone/dock.JPG" class="image fit" alt="Hollywood Beach Dock" /></div>
 							</div>
 						</div>
 					</article>
 				</div>
 			</section>
+			
+		<!-- Modals -->
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>	<!-- The Close Button -->
+				<img class="modal-content" id="img01">	<!-- Modal Content (The Image) -->
+				<div id="caption"></div>	<!-- Modal Caption (Image Text) -->
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -107,6 +114,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/modal.js"></script>
 			
 			<!-- Last Modified Date -->
 			<script type="text/javascript">

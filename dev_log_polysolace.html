@@ -46,13 +46,26 @@
 			</nav>
 
 		<!-- Content -->
-			<section id="post" class="wrapper bg-img" data-bg="abstract_bg2.png">
+			<section id="post" class="wrapper bg-img" data-bg="backgrounds/abstract_bg2.png">
 				<div class="inner">
 					<article class="box">
 						<header>
 							<h2>Dev Log: Poly Solace</h2>
 						</header>
 						<div class="content">
+							<div class="desc">
+								<h4>January 16th, 2020:</h4><span> Flat Shaded Terrain</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									Just a quick little update to the game. I added a flat shading "low-poly" look to the terrain generation. I love the low-poly look in games and really hope to bring that aesthetic to my game as much as 
+									possible. Below is just a little comparison between the two different looks.
+								</p>
+								<div>
+									<p align="center"><img id="myImg" src="images/poly_solace/flat_shading_comparison.png" class="image" alt="Flat Shading vs Normal Shading"/></p>
+								</div>
+							</div>
+							<hr>
 							<div class="desc">
 								<h4>January 15th, 2020:</h4><span> Working on Terrain Generation</span>
 							</div>
@@ -63,9 +76,10 @@
 									wish to expand the size of it and make it more "low-poly" than it is now, but this is definitely a start.
 								</p>
 								<div>
-									<p align="center"><img src="images/poly_solace2.gif" class="image" alt="Map Generation"/></p>
+									<p align="center"><img id="myImg" src="images/poly_solace/poly_solace2.gif" class="image" alt="Map Generation"/></p>
 								</div>
 							</div>
+							<hr>
 							<div class="desc">
 								<h4>December 29th, 2019:</h4><span> Winter Break</span>
 							</div>
@@ -77,6 +91,7 @@
 									demanding on the game, so large maps are impossible to have at the moment. I might have to delve into multithreading again to get it to work on a larger scale.
 								</p>
 							</div>
+							<hr>
 							<div class="desc">
 								<h4>November 26th, 2019:</h4><span> Created a simple procedurally generated world</span>
 							</div>
@@ -95,6 +110,13 @@
 					</article>
 				</div>
 			</section>
+			
+		<!-- Modals -->
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>	<!-- The Close Button -->
+				<img class="modal-content" id="img01">	<!-- Modal Content (The Image) -->
+				<div id="caption"></div>	<!-- Modal Caption (Image Text) -->
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer">
@@ -130,6 +152,7 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/modal.js"></script>
 			
 			<!-- Last Modified Date -->
 			<script type="text/javascript">
