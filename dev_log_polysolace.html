@@ -60,6 +60,40 @@
 						</header>
 						<div class="content">
 							<div class="desc">
+								<h4>February 5th, 2020:</h4><span> Larger Terrain and a Main Menu</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									I have implemented a lot of new features since my last update. The map is now split into chunks so I can have larger maps in general(256 X 256). I have also created a little main menu to make it feel more like a game 
+									at the moment. Finally, I added a very simple and crude user camera controller. The user can now use E and Q to rotate the map, use the scroll wheel to zoom in and out, and use W,A,S,D to move the camera. I still have a ton 
+									of issues with the shaders, but that has been put off to the side for now. Currently, I am working on adding plants to the world. I am debating whether or not to procedurally generate the plants too, but I will get a working 
+									layout of the spawning of the plants first.
+								</p>
+								<div>
+									<p align="center"><img id="myImg" src="images/poly_solace/new_menu.gif" class="image" alt="New Menu"/></p>
+								</div>
+							</div>
+							<hr>
+							<div class="desc">
+								<h4>January 25th, 2020:</h4><span> Revamped Water and Terrain</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									With this update, I have significantly improved the runtime of the game! Through some quick searches online, it is possible to recreate the low-poly look through shaders. With this new information, I 
+									got to work implementing a low-poly shader from mixing and mashing multiple tutorials online. With a shader, I am able to decrease the overall vector count for each mesh by basically half. The original way I 
+									implemented the low-poly look was through doubling the vector count and not sharing any vectors for each mesh triangle (this tells the GPU whether or not to blend the colors or lighting effects). Now with a decreased vector count 
+									I am able to drastically increase the size of the map and keep the performance up. As I was implementing this new low-poly shader for the terrain, I learned that I could actually displace the vectors through the shader itself also! 
+									Now I can recreate the same water effect with just a single plane using this new low-poly water shader I created.
+									<br></br>
+									While creating the shaders, I wasn't able to recreate the original color scheme I had before. The terrain is a little too dark now and the water isn't exactly how I want it just yet either. This is what I will be working 
+									on next.
+								</p>
+								<div>
+									<p align="center"><img id="myImg" src="images/poly_solace/shader_terrain.gif" class="image" alt="New terrain and water shader"/></p>
+								</div>
+							</div>
+							<hr>
+							<div class="desc">
 								<h4>January 16th, 2020:</h4><span> Flat Shaded Terrain</span>
 							</div>
 							<div class="dev-body">
