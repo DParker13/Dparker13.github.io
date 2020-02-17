@@ -3710,8 +3710,8 @@
 			cursor: pointer;
 			display: block;
 			height: 3.25em;
-			line-height: 3.25em;
-			padding-right: 1.25em;
+			line-height: 1.5em;
+			padding-right: 0.5em;
 			position: absolute;
 			right: 0;
 			text-align: right;
@@ -3731,7 +3731,7 @@
 			}
 
 			#menu .close:before {
-				font-size: 1.25em;
+				font-size: 1em;
 			}
 
 			#menu .close:hover {
