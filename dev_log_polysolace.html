@@ -10,13 +10,13 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		
+
 		<!-- Favicon -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 		<link rel="manifest" href="/site.webmanifest">
-		
+
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137263772-1"></script>
 		<script>
@@ -77,7 +77,7 @@
 										<li>Music system</li>
 										<li>Post processing effects</li>
 									</ul>
-									Now that classes have started up again, I have taken a slight break from the game to focus on them a little more. Even though my classes are now online and we're told to stay at home for the quarantine, I find myself on the computer 
+									Now that classes have started up again, I have taken a slight break from the game to focus on them a little more. Even though my classes are now online and we're told to stay at home for the quarantine, I find myself on the computer
 									for too long so I can't work on the game as much. I'd rather go outside while the day is nice and I don't have school work. The project is still going to be finished. I just need a slight break from it right now to just enjoy life.
 								</p>
 								<div>
@@ -90,9 +90,9 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									I have implemented a lot of new features since my last update. The map is now split into chunks so I can have larger maps in general(256 X 256). I have also created a little main menu to make it feel more like a game 
-									at the moment. Finally, I added a very simple and crude user camera controller. The user can now use E and Q to rotate the map, use the scroll wheel to zoom in and out, and use W,A,S,D to move the camera. I still have a ton 
-									of issues with the shaders, but that has been put off to the side for now. Currently, I am working on adding plants to the world. I am debating whether or not to procedurally generate the plants too, but I will get a working 
+									I have implemented a lot of new features since my last update. The map is now split into chunks so I can have larger maps in general(256 X 256). I have also created a little main menu to make it feel more like a game
+									at the moment. Finally, I added a very simple and crude user camera controller. The user can now use E and Q to rotate the map, use the scroll wheel to zoom in and out, and use W,A,S,D to move the camera. I still have a ton
+									of issues with the shaders, but that has been put off to the side for now. Currently, I am working on adding plants to the world. I am debating whether or not to procedurally generate the plants too, but I will get a working
 									layout of the spawning of the plants first.
 								</p>
 								<div>
@@ -105,13 +105,13 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									With this update, I have significantly improved the runtime of the game! Through some quick searches online, it is possible to recreate the low-poly look through shaders. With this new information, I 
-									got to work implementing a low-poly shader from mixing and mashing multiple tutorials online. With a shader, I am able to decrease the overall vector count for each mesh by basically half. The original way I 
-									implemented the low-poly look was through doubling the vector count and not sharing any vectors for each mesh triangle (this tells the GPU whether or not to blend the colors or lighting effects). Now with a decreased vector count 
-									I am able to drastically increase the size of the map and keep the performance up. As I was implementing this new low-poly shader for the terrain, I learned that I could actually displace the vectors through the shader itself also! 
+									With this update, I have significantly improved the runtime of the game! Through some quick searches online, it is possible to recreate the low-poly look through shaders. With this new information, I
+									got to work implementing a low-poly shader from mixing and mashing multiple tutorials online. With a shader, I am able to decrease the overall vector count for each mesh by basically half. The original way I
+									implemented the low-poly look was through doubling the vector count and not sharing any vectors for each mesh triangle (this tells the GPU whether or not to blend the colors or lighting effects). Now with a decreased vector count
+									I am able to drastically increase the size of the map and keep the performance up. As I was implementing this new low-poly shader for the terrain, I learned that I could actually displace the vectors through the shader itself also!
 									Now I can recreate the same water effect with just a single plane using this new low-poly water shader I created.
 									<br></br>
-									While creating the shaders, I wasn't able to recreate the original color scheme I had before. The terrain is a little too dark now and the water isn't exactly how I want it just yet either. This is what I will be working 
+									While creating the shaders, I wasn't able to recreate the original color scheme I had before. The terrain is a little too dark now and the water isn't exactly how I want it just yet either. This is what I will be working
 									on next.
 								</p>
 								<div>
@@ -124,7 +124,7 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									Just a quick little update to the game. I added a flat shading "low-poly" look to the terrain generation. I love the low-poly look in games and really hope to bring that aesthetic to my game as much as 
+									Just a quick little update to the game. I added a flat shading "low-poly" look to the terrain generation. I love the low-poly look in games and really hope to bring that aesthetic to my game as much as
 									possible. Below is just a little comparison between the two different looks.
 								</p>
 								<div>
@@ -137,8 +137,8 @@
 							</div>
 							<div class="dev-body">
 								<p>
-									While on break, I have found myself hardly working on this project and just enjoying my extra freetime while I have it. I have worked on this project from time to time when I got bored and implemented 
-									a better looking terrain generator. I followed a couple youtube videos and did some personal modifications to what I already had to create the terrain generator. I am pretty happy with it at the moment and 
+									While on break, I have found myself hardly working on this project and just enjoying my extra freetime while I have it. I have worked on this project from time to time when I got bored and implemented
+									a better looking terrain generator. I followed a couple youtube videos and did some personal modifications to what I already had to create the terrain generator. I am pretty happy with it at the moment and
 									wish to expand the size of it and make it more "low-poly" than it is now, but this is definitely a start.
 								</p>
 								<div>
@@ -152,8 +152,8 @@
 							<div class="dev-body">
 								<p>
 									I am currently on winter break for college and haven't had much of a drive to work on projects. It is nice to just relax after such a stressful semester. I have tons of free-time at the moment
-									and when I am in the mood, I will eventually work on this project some more and add some new things. Currently, I was thinking of fleshing out the map generator and making it a more interesting 
-									by adding different forms of noise to the map. I have found a way to implement a fall-off map to make the whole chunk of land into an island. I have run into the issue of the water being too 
+									and when I am in the mood, I will eventually work on this project some more and add some new things. Currently, I was thinking of fleshing out the map generator and making it a more interesting
+									by adding different forms of noise to the map. I have found a way to implement a fall-off map to make the whole chunk of land into an island. I have run into the issue of the water being too
 									demanding on the game, so large maps are impossible to have at the moment. I might have to delve into multithreading again to get it to work on a larger scale.
 								</p>
 							</div>
@@ -176,7 +176,7 @@
 					</article>
 				</div>
 			</section>
-			
+
 		<!-- Modals -->
 			<div id="myModal" class="modal">
 				<span class="close">&times;</span>	<!-- The Close Button -->
@@ -195,11 +195,11 @@
 						<li><a href="https://www.instagram.com/dan_parker_13/" target="_blank" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="https://github.com/Xonor13" target="_blank" class="icon round fa-github"><span class="label">GitHub</span></a></li>
 					</ul>
-					
+
 					<div align="center">
 						<p>Email: <a href="mailto:danielparker134@gmail.com">danielparker134@gmail.com</a></p>
 					</div>
-					
+
 					<div>
 						<p align="center">Last Modified: <font id="lastModified" align="center" color="white"></font></p>
 					</div>
@@ -219,7 +219,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/modal.js"></script>
-			
+
 			<!-- Last Modified Date -->
 			<script type="text/javascript">
 			onload = function(){
