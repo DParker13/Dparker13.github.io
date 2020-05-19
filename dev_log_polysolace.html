@@ -60,6 +60,49 @@
 						</header>
 						<div class="content">
 							<div class="desc">
+								<h4>May 19th, 2020:</h4><span> Back on Track with more additions</span>
+							</div>
+							<div class="dev-body">
+								<p>
+									Now that classes have ended for me, I have returned to a more normal schedule of working on the game. I now put in a couple hours a week now adding and improving features of the game.
+									<br>
+									<b>New Items/Improvements:</b>
+									<ul>
+										<li>1 new original tree models</li>
+										<li>2 new fence models</li>
+										<li>1 new wooden platform</li>
+										<li>Finished skybox with the sun, stars, and moon</li>
+										<li>Scalable chunk system for map generation (allows for more optimization options)</li>
+										<li>Tweaked Water and Terrain shaders for better colors
+									</ul>
+									<b>Features in Progress:</b>
+									<ul>
+										<li>Implementing billboard impostors</li>
+										<li>Improving the settings menu</li>
+										<li>Building/Placing objects</li>
+									</ul>
+								</p>
+								<p>
+									The main issue I am having right now is optimization. The game currently has thousands of objects around the map, while most of them are disabled and enabled when approached, this brings up another issue. 
+									Larger objects like trees can't just be rendered when you're within a certain distance. This would cause an extremely noticable popup effect and a very boring and bland map if you look in the distance (nothing but the terrain and water would be rendered). 
+									To limit the total number of vertices on the map I have three main options: a chunk based level of detail system, low level of detail objects, or billboard impostors.
+								</p>
+								<p>
+									I believe implementing a chunk based low level of detail(LOD) system and a billboard impostor system will work best. The idea behind the chunk system will only effect the terrain mesh. The further away the terrain chunk 
+									is from the player, the lower detail is needed for displaying it in the distance. The map is already divided into 9x9 chunks, so I can introduce different LODs to those chunks based on distance from the player. 
+									This will cut back on a large amount of vertices and reduce the stress for rendering the scene.
+								</p>
+								<p>
+									The billboard impostor solution is extremely complex but has HUGE performance boosting potential. Billboard impostors require a texture atlas of multiple images of the same object but at different angles. These images are 
+									used on a flat 4 vertice mesh that always faces the camera. Depending on the viewing angle of the player with the textured mesh, it will use the appropriate image of the object to mimic the viewing of the real object. 
+									Depending on the texture resolution and the transition between different viewing angles, the billboard impostor can look just as good as a full rendering of the 3D object but have 100x less vertices.
+								</p>
+								<p>
+									In short, I am almost done implementing the different levels of LOD for the terrain chunks, and I am researching ways to create my own billboard impostor for every object.
+								</p>
+							</div>
+							<hr>
+							<div class="desc">
 								<h4>April 8th, 2020:</h4><span> A Ton of Additions</span>
 							</div>
 							<div class="dev-body">
@@ -127,7 +170,7 @@
 									implemented the low-poly look was through doubling the vector count and not sharing any vectors for each mesh triangle (this tells the GPU whether or not to blend the colors or lighting effects). Now with a decreased vector count
 									I am able to drastically increase the size of the map and keep the performance up. As I was implementing this new low-poly shader for the terrain, I learned that I could actually displace the vectors through the shader itself also!
 									Now I can recreate the same water effect with just a single plane using this new low-poly water shader I created.
-									<br></br>
+									<br>
 									While creating the shaders, I wasn't able to recreate the original color scheme I had before. The terrain is a little too dark now and the water isn't exactly how I want it just yet either. This is what I will be working
 									on next.
 								</p>
