@@ -2612,10 +2612,18 @@
 
 	/* 100% Image Width on Smaller Screens */
 	@media only screen and (max-width: 700px){
+		.close {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			color: #f1f1f1;
+			font-size: 40px;
+			font-weight: bold;
+			transition: 0.3s;
+		}
+	
 		.modal-content {
 			width: 100%;
-			top: 10px;
-			right: 20px;
 		}
 	}
 
