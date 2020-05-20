@@ -2614,7 +2614,7 @@
 	@media only screen and (max-width: 700px){
 		.modal-content {
 			width: 100%;
-			top: 20px;
+			top: 10px;
 			right: 20px;
 		}
 	}
