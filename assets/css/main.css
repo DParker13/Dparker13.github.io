@@ -2612,16 +2612,6 @@
 
 	/* 100% Image Width on Smaller Screens */
 	@media only screen and (max-width: 700px){
-		.close {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-			color: #f1f1f1;
-			font-size: 40px;
-			font-weight: bold;
-			transition: 0.3s;
-		}
-	
 		.modal-content {
 			width: 100%;
 		}
@@ -3719,8 +3709,8 @@
 			color: #b5e8fb;
 			cursor: pointer;
 			display: block;
-			height: 3.25em;
-			line-height: 1.5em;
+			height: 45px;
+			line-height: 1em;
 			padding-right: 0.5em;
 			position: absolute;
 			right: 0;
@@ -3749,10 +3739,8 @@
 			}
 
 			@media screen and (max-width: 736px) {
-
 				#menu .close {
-					height: 4em;
-					line-height: 4em;
+					height: 45px;
 				}
 
 			}
