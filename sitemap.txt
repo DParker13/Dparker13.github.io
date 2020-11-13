@@ -1,7 +1,7 @@
 http://danielwparker.space/
 http://danielwparker.space/projects.html
 http://danielwparker.space/index.html
-http://danielwparker.space/hobbies.html
+http://danielwparker.space/photography.html
 http://danielwparker.space/dev_log.html
 http://danielwparker.space/dev_log_dvd.html
 http://danielwparker.space/dev_log_polysolace.html
