@@ -2864,48 +2864,139 @@
 	}
 
 /* Skills Bar */
-	
-	.skills-title {
-		font-weight: bold;
-		font-size: 1.15em;
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Poppins', sans-serif;
+	}
+	::selection{
+		color: #fff;
+		background: #6665ee;
+	}
+	.skill-bars{
+		margin: 0 auto;
+		padding: 25px 30px;
+		width: 600px;
+		box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+		border-radius: 10px;
+	}
+	.skill-bars .bar{
+		margin: 20px 0;
+	}
+	.skill-bars .bar:first-child{
+		margin-top: 0px;
+	}
+	.skill-bars .bar .info{
 		text-align: left;
-		padding-top: 15px;
-		padding-bottom: 5px;
-		color: white;
+		margin-bottom: 5px;
 	}
-	
-	#skills{
-	   border-collapse: separate;
-	   font-style: oblique;
-	   font-size: 0.75em;
-	   margin-bottom: 0em;
-	   margin-left: 15px;
+	.skill-bars .bar .info span{
+		font-weight: 500;
+		font-size: 17px;
+		opacity: 0;
+		animation: showText 0.5s 1s linear forwards;
 	}
-
-	#skills td {
-	   padding: 0; 
-	   margin: 0;
+	@keyframes showText {
+		100%{
+			opacity: 1;
+		}
 	}
-	
-	.container {
-	  width: 100%;
-	  border-radius: 5px;
-	  background-color: #ddd;
-	  margin-left: 15px;
+	.skill-bars .bar .progress-line{
+		height: 10px;
+		width: 100%;
+		background: #f0f0f0;
+		transform: scaleX(0);
+		transform-origin: left;
+		border-radius: 10px;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.05),
+				0 1px rgba(255,255,255,0.8);
+		animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
 	}
-
-	.skills {
-	  text-align: right;
-	  border-radius: 5px;
-	  color: white;
+	@keyframes animate {
+		100%{
+			transform: scaleX(1);
+		}
 	}
-
-	.html {width: 90%; background-color: #C34A0F; padding-right: 10px;}
-	.css {width: 70%; background-color: #C34A0F; padding-right: 10px;}
-	.js {width: 50%; background-color: #C34A0F; padding-right: 10px;}
-	.cshrp {width: 80%; background-color: #C34A0F; padding-right: 10px;}
-	.java {width: 90%; background-color: #C34A0F; padding-right: 10px;}
-	.python {width: 90%; background-color: #C34A0F; padding-right: 10px;}
+	.bar .progress-line span{
+		height: 11px;
+		position: absolute;
+		left: 0;
+		border-radius: 10px;
+		transform: scaleX(0);
+		transform-origin: left;
+		background: #6665ee;
+		animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+	}
+	.bar .progress-line.java span{
+		width: 95%;
+	}
+	.bar .progress-line.python span{
+		width: 95%;
+	}
+	.bar .progress-line.csharp span{
+		width: 85%;
+	}
+	.bar .progress-line.html span{
+		width: 80%;
+	}
+	.bar .progress-line.css span{
+		width: 75%;
+	}
+	.bar .progress-line.javascript span{
+		width: 50%;
+	}
+	.progress-line span::before{
+		position: absolute;
+		content: "";
+		top: -10px;
+		right: 0;
+		height: 0;
+		width: 0;
+		border: 7px solid transparent;
+		border-bottom-width: 0px;
+		border-right-width: 0px;
+		border-top-color: white;
+		opacity: 0;
+		animation: showText2 0.5s 1.5s linear forwards;
+	}
+	.progress-line span::after{
+		position: absolute;
+		top: -28px;
+		right: 0;
+		font-weight: 500;
+		background: white;
+		color: black;
+		padding: 1px 8px;
+		font-size: 12px;
+		border-radius: 3px;
+		opacity: 0;
+		animation: showText2 0.5s 1.5s linear forwards;
+	}
+	@keyframes showText2 {
+		100%{
+			opacity: 1;
+		}
+	}
+	.progress-line.java span::after{
+		content: "95%";
+	}
+	.progress-line.python span::after{
+		content: "95%";
+	}
+	.progress-line.csharp span::after{
+		content: "90%";
+	}
+	.progress-line.html span::after{
+		content: "80%";
+	}
+	.progress-line.css span::after{
+		content: "75%";
+	}
+	.progress-line.javascript span::after{
+		content: "50%";
+	}
 
 /* Section/Article */
 
