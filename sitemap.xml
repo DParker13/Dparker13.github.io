@@ -1,71 +1,82 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <url>
-    <loc>http://danielwparker.space/</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/projects.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/index.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/hobbies.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/dev_log.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/dev_log_dvd.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/dev_log_polysolace.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/project_polysolace.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/dev_log_tranquility.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/project_marble.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/project_tranquility.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/project_dvd.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>http://danielwparker.space/dev_log_marble.html</loc>
-    <lastmod>2020-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-  </url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://danielwparker.space/</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/index.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/projects.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/resume.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/photography.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/project_tranquility.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/dev_log_tranquility.html</loc>
+  <lastmod>2021-10-05T17:27:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/project_dvd.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/dev_log_dvd.html</loc>
+  <lastmod>2021-10-05T17:27:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/project_marble.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/dev_log_marble.html</loc>
+  <lastmod>2021-10-05T17:27:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/project_polysolace.html</loc>
+  <lastmod>2021-10-05T17:27:21+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/dev_log_polysolace.html</loc>
+  <lastmod>2021-10-05T17:27:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://danielwparker.space/documents/Daniel_Parker_Resume_Website.pdf</loc>
+  <lastmod>2021-10-05T17:27:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
 </urlset>
-<!--<guid value="2a40556d-ea7d-4366-b8ed-33511766dd23" />-->
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
