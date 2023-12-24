@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzImage } from 'ng-zorro-antd/image';
 
 @Component({
   selector: 'app-coding-portfolio',
@@ -6,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coding-portfolio.component.css']
 })
 export class CodingPortfolioComponent implements OnInit {
-  images: Array<string>
+  images: Array<NzImage>
 
   constructor() {
-    this.images = ["assets/images/tranquility/tranquility2.gif",
-    "assets/images/poly_solace/new_menu.gif",
-    "assets/images/marbles/marbles1.gif",
-    "assets/images/dvd/dvd1.gif",]
+    this.images = [{src: "assets/images/tranquility/tranquility2.gif"},
+    {src: "assets/images/poly_solace/new_menu.gif"},
+    {src: "assets/images/marbles/marbles1.gif"},
+    {src: "assets/images/dvd/dvd1.gif"}]
   }
 
   ngOnInit(): void {

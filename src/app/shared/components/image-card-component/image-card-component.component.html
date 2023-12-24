@@ -1,0 +1,9 @@
+<nz-water-mark nzContent="Daniel Parker">
+    <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate" (click)="onClick()">
+        <nz-card-meta nzTitle="Europe Street beat" nzDescription="www.instagram.com"></nz-card-meta>
+    </nz-card>
+</nz-water-mark>
+
+<ng-template #coverTemplate>
+    <img alt="example" [src]="imageDetails.src"/>
+</ng-template>

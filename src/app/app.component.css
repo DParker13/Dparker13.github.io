@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,600,700,800");
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -47,11 +49,11 @@
 
 .sidebar-logo h1 {
   display: inline-block;
+  font-family: "Lobster", cursive;
   margin: 0 0 0 20px;
   color: #fff;
   font-weight: 600;
-  font-size: 14px;
-  font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
+  font-size: 25px;
   vertical-align: middle;
 }
 
@@ -74,7 +76,14 @@ nz-content {
 }
 
 .inner-content {
+  overflow: scroll;
+  overflow-x: hidden;
   padding: 24px;
   background: #fff;
   height: 100%;
+}
+
+.icon-large {
+  font-size: 25px;
+  padding-top: 10px;
 }

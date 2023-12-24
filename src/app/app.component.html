@@ -6,26 +6,38 @@
             [(nzCollapsed)]="isCollapsed"
             [nzTrigger]="null">
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
-        <h1>Ant Design Of Angular</h1>
+      <a href="https://www.danielwparker.space">
+        <img src="assets/images/icon/android-chrome-192x192.png" alt="logo">
+        <h1>Daniel Parker</h1>
       </a>
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/resume"><span nz-icon nzType="file" nzTheme="outline"></span> Resume</a>
+      </li>
+      <li nz-submenu nzOpen nzTitle="Portfolios" nzIcon="folder">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/coding-portfolio">Programming Projects</a>
+            <a routerLink="/coding-portfolio"><span nz-icon nzType="code" nzTheme="outline" class="icon-large"></span> Personal Projects</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/photography-portfolio">Photography</a>
+            <a routerLink="/photography-portfolio"><span nz-icon nzType="picture" nzTheme="outline" class="icon-large"></span> Photography</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzOpen nzTitle="Social Media" nzIcon="team">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+            <a href="https://www.linkedin.com/in/daniel-parker-099244171/" target="_blank"><span nz-icon nzType="linkedin" nzTheme="outline" class="icon-large"></span> LinkedIn</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a href="https://github.com/DParker13" target="_blank"><span nz-icon nzType="github" nzTheme="outline" class="icon-large"></span> Github</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a href="https://www.facebook.com/danielparker134" target="_blank"><span nz-icon nzType="facebook" nzTheme="outline" class="icon-large"></span> Facebook</a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a href="https://www.instagram.com/dan_parker_13/" target="_blank"><span nz-icon nzType="instagram" nzTheme="outline" class="icon-large"></span> Instagram</a>
           </li>
         </ul>
       </li>
