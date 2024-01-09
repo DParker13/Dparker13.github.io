@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { NzImage, NzImageService } from 'ng-zorro-antd/image';
+import { NzImage } from 'ng-zorro-antd/image';
 
 @Component({
   selector: 'app-image-card-component',
@@ -10,13 +10,9 @@ import { NzImage, NzImageService } from 'ng-zorro-antd/image';
 
 export class ImageCardComponentComponent {
   @Input()
-  imageDetails: NzImage
+  imageDetail: NzImage
 
-  constructor(private nzImageService: NzImageService) {
-    this.imageDetails = {src: ""}
-  }
-  
-  onClick(): void {      
-    this.nzImageService.preview([this.imageDetails], { nzZoom: 1, nzRotate: 0 });
+  constructor() {
+    this.imageDetail = {src: ""}
   }
 }

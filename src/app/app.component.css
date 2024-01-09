@@ -19,15 +19,16 @@
 }
 
 .header-trigger {
-  height: 64px;
-  padding: 20px 24px;
-  font-size: 20px;
+  height: 0px;
+  padding: 0 10px;
+  font-size: 15px;
   cursor: pointer;
   transition: all .3s,padding 0s;
 }
 
 .trigger:hover {
-  color: #1890ff;
+  color: #fff;
+  transition: all .3s
 }
 
 .sidebar-logo {
@@ -57,22 +58,15 @@
   vertical-align: middle;
 }
 
-nz-header {
-  padding: 0;
-  width: 100%;
-  z-index: 2;
-}
-
 .app-header {
   position: relative;
-  height: 64px;
-  padding: 0;
-  background: #fff;
+  bottom: 65px;
+  left: 5px;
+  text-align: right;
+  height: 0px;
+  color: rgba(255, 255, 255, 0.65);
+  z-index: 2;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
-}
-
-nz-content {
-  margin: 24px;
 }
 
 .inner-content {
@@ -86,4 +80,27 @@ nz-content {
 .icon-large {
   font-size: 25px;
   padding-top: 10px;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #88888888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #55555573;
+  border-radius: 10px;
 }

@@ -1,3 +1,9 @@
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
 <nz-layout class="app-layout">
   <nz-sider class="menu-sidebar"
             nzCollapsible
@@ -11,49 +17,75 @@
         <h1>Daniel Parker</h1>
       </a>
     </div>
+    <div class="app-header">
+      <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+          <span class="trigger"
+             nz-icon
+             [nzType]="isCollapsed ? 'right' : 'left'"
+          ></span>
+      </span>
+    </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
       <li nz-menu-item nzMatchRouter>
-        <a routerLink="/resume"><span nz-icon nzType="file" nzTheme="outline"></span> Resume</a>
+        <a routerLink="/about-me">
+          <span nz-icon nzType="home" nzTheme="outline"></span>
+          <span *ngIf="!isCollapsed; else elseBlock"> About Me</span>
+          <ng-template #elseBlock />
+        </a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/resume">
+          <span nz-icon nzType="file" nzTheme="outline"></span>
+          <span *ngIf="!isCollapsed; else elseBlock"> Resume</span>
+          <ng-template #elseBlock />
+        </a>
       </li>
       <li nz-submenu nzOpen nzTitle="Portfolios" nzIcon="folder">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/coding-portfolio"><span nz-icon nzType="code" nzTheme="outline" class="icon-large"></span> Personal Projects</a>
+            <a routerLink="/coding-portfolio">
+              <span nz-icon nzType="code" nzTheme="outline" class="icon-large"></span> Personal Projects
+            </a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/photography-portfolio"><span nz-icon nzType="picture" nzTheme="outline" class="icon-large"></span> Photography</a>
+            <a routerLink="/photography-portfolio">
+              <span nz-icon nzType="picture" nzTheme="outline" class="icon-large"></span> Photography
+            </a>
           </li>
         </ul>
       </li>
       <li nz-submenu nzOpen nzTitle="Social Media" nzIcon="team">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a href="https://www.linkedin.com/in/daniel-parker-099244171/" target="_blank"><span nz-icon nzType="linkedin" nzTheme="outline" class="icon-large"></span> LinkedIn</a>
+            <a href="https://www.linkedin.com/in/daniel-parker-099244171/" target="_blank">
+              <span nz-icon nzType="linkedin" nzTheme="outline" class="icon-large"></span> LinkedIn
+            </a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a href="https://github.com/DParker13" target="_blank"><span nz-icon nzType="github" nzTheme="outline" class="icon-large"></span> Github</a>
+            <a href="https://github.com/DParker13" target="_blank">
+              <span nz-icon nzType="github" nzTheme="outline" class="icon-large"></span> Github
+            </a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a href="https://www.facebook.com/danielparker134" target="_blank"><span nz-icon nzType="facebook" nzTheme="outline" class="icon-large"></span> Facebook</a>
+            <a href="https://www.facebook.com/danielparker134" target="_blank">
+              <span nz-icon nzType="facebook" nzTheme="outline" class="icon-large"></span> Facebook
+            </a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a href="https://www.instagram.com/dan_parker_13/" target="_blank"><span nz-icon nzType="instagram" nzTheme="outline" class="icon-large"></span> Instagram</a>
+            <a href="https://www.instagram.com/dan_parker_13/" target="_blank">
+              <span nz-icon nzType="instagram" nzTheme="outline" class="icon-large"></span> Instagram
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a href="mailto:danielparker134@gmail.com" target="_blank">
+              <span nz-icon nzType="mail" nzTheme="outline" class="icon-large"></span> E-Mail
+            </a>
           </li>
         </ul>
       </li>
     </ul>
   </nz-sider>
   <nz-layout>
-    <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-            <span class="trigger"
-               nz-icon
-               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-            ></span>
-        </span>
-      </div>
-    </nz-header>
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>
