@@ -26,5 +26,6 @@ export class PhotographyPortfolioComponent {
     console.log(imageService.getAllImages(1));
     
     this.images = imageService.getAllImages(1);
+    console.log(this.images)
   }
 }

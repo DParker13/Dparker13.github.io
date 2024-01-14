@@ -8,7 +8,7 @@ export class ImageService {
   constructor(private http: HttpClient) {}
 
   getAllImages(portfolio_id: number): Observable<NzImage[]> {
-    return this.http.get<NzImage[]>('http://localhost:8000/api/images/' + portfolio_id)
+    return this.http.get<NzImage[]>('http://localhost:8000/api/v1/images/' + portfolio_id)
   }
 
   getImage(file: string): Observable<NzImage> {
