@@ -7,16 +7,20 @@ import { NzImage } from 'ng-zorro-antd/image';
   styleUrls: ['./coding-portfolio.component.css']
 })
 export class CodingPortfolioComponent implements OnInit {
-  images: Array<NzImage>
+  projects: Array<MyProjects>
 
   constructor() {
-    this.images = [{src: "assets/images/tranquility/tranquility2.gif"},
-    {src: "assets/images/poly_solace/new_menu.gif"},
-    {src: "assets/images/marbles/marbles1.gif"},
-    {src: "assets/images/dvd/dvd1.gif"}]
+    this.projects = [{image: {src: "assets/images/tranquility/tranquility2.gif"}, name: "Tranquility", description: "2D Procedurally Generated Survival Game"},
+    {image: {src: "assets/images/poly_solace/new_menu.gif"}, name: "Poly Solace", description: "3D Procedurally Generated Survival Game"}]
   }
 
   ngOnInit(): void {
   }
 
+}
+
+export interface MyProjects {
+  image: NzImage
+  name: string
+  description: string
 }

@@ -1,10 +1,30 @@
-<h1>Photography Portfolio</h1>
-<nz-image-group nz-row [nzGutter]="[8, 8]">
-    <span nz-col *ngFor="let image of images | async" [nzSpan]="8">
+<ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected (click)="changePortfolio(1)">
+        <span nz-icon nzType="camera"></span>
+        35mm Film
+    </li>
+    <li nz-menu-item (click)="changePortfolio(2)">
+        <span nz-icon nzType="star"></span>
+        Astrophotography
+    </li>
+    <li nz-menu-item (click)="changePortfolio(3)">
+        <span nz-icon nzType="camera" nzTheme="'twotone'"></span>
+        Digital
+    </li>
+    <li nz-menu-item (click)="changePortfolio(5)">
+        <span nz-icon nzType="picture"></span>
+        Aesthetic Tree
+    </li>
+</ul>
+
+<div id="inner-body">
+    <h1 class="title">{{portfolioName}} Portfolio</h1>
+    <nz-image-group  id="images-wrapper">
         <img nz-image
-        [nzSrc]="image.src"
-        [nzFallback]="fallback"
-        width="100%"
-        class="image-card" />
-    </span>
-</nz-image-group>
+            *ngFor="let image of images$ | async"
+            [nzSrc]="image.src"
+            [alt]="image.alt"
+            [nzFallback]="fallback"
+            class="image-card" />
+    </nz-image-group>
+</div>

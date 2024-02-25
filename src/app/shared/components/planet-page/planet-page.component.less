@@ -1,0 +1,45 @@
+.circular {
+    border-radius: 50%;
+}
+
+.planet {
+    position: absolute;
+    transform-origin: center center;
+}
+
+.orbit {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border: 2px solid gray;
+    background-color: transparent;
+}
+
+.line {
+    position: relative;
+    width: 2vw;
+    height: 0.15vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    transform: rotate(-50deg);
+}
+
+.title {
+    position: relative;
+    display: inline-block;
+    text-align: right;
+    font-size: 1.25vw;
+    left: 2.5vw;
+    transform: translate(-25%) rotate(50deg);
+    font-family: Palatino;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.rotation {
+    position: relative;
+    transform-origin: center left;
+    top: 50%;
+}
+
+.clickable {
+    cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
+}

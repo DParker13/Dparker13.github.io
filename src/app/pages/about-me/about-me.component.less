@@ -1,0 +1,65 @@
+@import "../../../theme.less";
+
+@body-background: @black;
+
+h1, h2 {
+    color: @text-color;
+}
+
+h1 {
+    font-family: "Lobster", cursive;
+    margin: 0 0 0 20px;
+    color: @text-color-inverse;
+    font-weight: 600;
+    font-size: 4em;
+    vertical-align: middle;
+    text-align: center;
+    transition: vertical-align linear 1s;
+}
+
+.skills {
+    display:inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.card {
+    margin: 25px;
+    padding: 25px;
+    box-shadow: 7px 7px 15px 0 @shadow-color;
+    border-radius: 5px;
+    background-color: @color-3;
+
+    p {
+        vertical-align: top;
+        text-align: left;
+        font-size: 17px;
+    }
+}
+
+.profile-pic {
+    float: right;
+    width: 25%;
+    height: 25%;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.9em;
+    }
+}
+
+@media (max-width: 300px) {
+    h1 {
+        font-size: 1em;
+    }
+}

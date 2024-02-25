@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollContainerComponent } from './scroll-container.component';
+import { SolarSystemComponent } from './solar-system.component';
 
-describe('ScrollContainerComponent', () => {
-  let component: ScrollContainerComponent;
-  let fixture: ComponentFixture<ScrollContainerComponent>;
+describe('SolarSystemComponent', () => {
+  let component: SolarSystemComponent;
+  let fixture: ComponentFixture<SolarSystemComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrollContainerComponent]
+      imports: [SolarSystemComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ScrollContainerComponent);
+    fixture = TestBed.createComponent(SolarSystemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

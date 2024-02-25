@@ -10,9 +10,10 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { IconsProviderModule } from './icons-provider.module';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { PhotographyPortfolioModule } from './pages/photography-portfolio/photography-portfolio.module';
+import { SolarSystemComponent } from './shared/components/solar-system/solar-system.component';
 
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
 
@@ -29,9 +30,10 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IconsProviderModule,
-    NzLayoutModule,
-    NzMenuModule
+    SolarSystemComponent,
+    NzMenuModule,
+    NzIconModule,
+    PhotographyPortfolioModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

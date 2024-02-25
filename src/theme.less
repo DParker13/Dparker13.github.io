@@ -5,5 +5,46 @@
 
 // Override less variables to here
 // View all variables: https://github.com/NG-ZORRO/ng-zorro-antd/blob/master/components/style/themes/default.less
+/* Color Pallete #FFF3DA #DFCCFB #D0BFFF #BEADFA */
+/* #7BDFF2 #B2F7EF #EFF7F6 #F7D6E0 #F2B5D4 */
 
-// @primary-color: #1890ff;
+// -------- Colors -----------
+// >>> Palette
+@color-1: #210535;
+@color-2: #430d4b;
+@color-3: #7b337d;
+@color-4: #c874b2;
+@color-5: #000000;
+
+// >>> Text
+@text-color: @white;
+@text-color-secondary: @color-5;
+@text-color-inverse: @black;
+
+// >>> Links
+@link-color: @color-1;
+@link-hover-color: @color-1;
+@link-active-color: @color-1;
+
+// >>> Backgrounds
+@body-background: @color-5; // Background color for `<body>`
+@component-background: @color-1; // Base background color for most components
+@background-color-light: @color-2; // Background of header and selected item
+
+// >>> Shadows
+@shadow-color: rgba(0, 0, 0, 0.35);
+@shadow-color-inverse: @component-background;
+
+// >>> Borders
+@border-color-base: @color-2; // base border outline a component
+@border-color-split: @component-background; // split border inside a component
+@border-color-inverse: @color-3;
+
+// >>> Menu Background
+@menu-inline-submenu-bg: @background-color-light; // Submenu bg color
+@menu-item-active-bg: @color-3; // Selected menu bg color
+@menu-item-group-title-color: @text-color-secondary;
+
+// >>> Menu Text
+@menu-item-color: @text-color; // Unselected menu text color
+@menu-highlight-color: @text-color-secondary; // Selected menu text color

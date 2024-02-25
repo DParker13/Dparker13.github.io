@@ -1,0 +1,17 @@
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="solar-system">
+    <app-planet-page *ngFor="let planet of planets; index as i"
+        [color]="planet.color"    
+        [size]="planet.size"
+        [orbit]="planet.orbit"
+        [lineY]="planet.lineY"
+        [rotation]="planet.rotation"
+        [route]="planet.route"
+        [title]="planet.title"
+        [rotationDelay]="0.25*i"></app-planet-page>
+    <div class="circular planet"style="width: 35vw;
+        height: 35vw;
+        background-color: #ffcc00;">
+    </div>
+</div>

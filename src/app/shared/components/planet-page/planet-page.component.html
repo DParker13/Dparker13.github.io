@@ -1,0 +1,32 @@
+<div class="rotation"
+    [style.z-index]="planetZIndex"
+    [@rotateAnimation]="{value: rotationState,
+                            params: {endRotation: getRotation(false), delay: rotationDelay}}">
+    <div class="circular orbit"
+        [style.width]="getOrbit()"
+        [style.height]="getOrbit()"
+        [style.z-index]="orbitZIndex">
+    </div>
+    <div class="circular planet clickable"
+        [style.left]="alignPlanet()"
+        [style.z-index]="planetZIndex"
+        [@counterRotateAnimation]="{value: rotationState,
+                                    params: {endRotation: getRotation(true), delay: rotationDelay}}"
+        [@interactAnimation]="{ value: animationState,
+                                params: { size: getSize(size),
+                                          left: alignPlanet(),
+                                          endRotation: getRotation(true),
+                                          clickSize: clickSize } }"
+        (mouseover)="mouseOver()"
+        (mouseout)="mouseOut()"
+        (click)="click()"
+        [style.backgroundColor]="hexToRgb(color)">
+        <div class="line"
+            [style.left]="getSize(size/1.25)"
+            [style.top]="getSize(lineY * -1)">
+            <div class="title">
+                {{title}}
+            </div>
+        </div>
+    </div>
+</div>

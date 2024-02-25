@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScrollItemComponent } from './scroll-item.component';
+import { PlanetPageComponent } from './planet-page.component';
 
-describe('ScrollItemComponent', () => {
-  let component: ScrollItemComponent;
-  let fixture: ComponentFixture<ScrollItemComponent>;
+describe('PlanetPageComponent', () => {
+  let component: PlanetPageComponent;
+  let fixture: ComponentFixture<PlanetPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrollItemComponent]
+      imports: [PlanetPageComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(ScrollItemComponent);
+    fixture = TestBed.createComponent(PlanetPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

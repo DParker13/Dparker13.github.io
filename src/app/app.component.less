@@ -1,0 +1,52 @@
+@import "../theme.less";
+@import url("https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,600,700,800");
+
+:host {
+  display: flex;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.inner-content {
+  overflow: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  div {
+    margin: 25px;
+  }
+}
+
+.back-button {
+  position: absolute;
+  margin-top: 5px;
+  font-size: 40px;
+  transform: rotate(-20deg);
+  cursor: pointer;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #88888888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #55555573;
+  border-radius: 10px;
+}
