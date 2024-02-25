@@ -1,0 +1,13 @@
+.star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: #eaeaea;
+    transition: all 1s ease-in-out;
+}
+  
+.star.blink {
+    transform: translate( -50%, -50% ) scale(2);
+    box-shadow: 0 0 4px 0.25px white;
+}
+  

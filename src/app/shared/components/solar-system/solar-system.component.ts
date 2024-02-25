@@ -3,11 +3,12 @@ import { NgFor } from '@angular/common';
 import { PlanetPageComponent } from '../planet-page/planet-page.component';
 import { IPlanetPage } from '../planet-page/planet-page.component';
 import { PagesService } from '../../services/pages/pages.service';
+import { StarsComponent } from '../stars/stars.component';
 
 @Component({
   selector: 'app-solar-system',
   standalone: true,
-  imports: [PlanetPageComponent, NgFor],
+  imports: [NgFor, PlanetPageComponent, StarsComponent],
   templateUrl: './solar-system.component.html',
   styleUrl: './solar-system.component.css'
 })
