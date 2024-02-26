@@ -15,9 +15,9 @@ function generateState(animationState: string) {
       }
     case 'hover':
       if (window.innerWidth > window.innerHeight) {
-        return state('hover', style({ transform: 'translate(-50%, -50%) {{endRotation}} scale(1.2)', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0 } });
+        return state('hover', style({ transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0 } });
       } else {
-        return state('hover', style({ transform: 'translate(-50%, -50%) {{endRotation}} scale(1.2)', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0 } });
+        return state('hover', style({ transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0 } });
       }
     case 'clicked':
       return state('clicked', style({ transform: 'translate(-50%, -50%) {{endRotation}}', height: '{{clickSize}}', width: '{{clickSize}}', left: '50vw' }), { params: { clickSize: '150vw', endRotation: 0 } });
@@ -38,30 +38,38 @@ function generateState(animationState: string) {
       generateState('hover'),
       generateState('clicked'),
       transition('idle <=> hover', animate('0.75s cubic-bezier(0, 0.2, 0.256, 1.55)')),
-      transition('hover => clicked', animate('1.5s ease-in-out')),
-      transition('clicked => idle', animate('1.5s ease-in-out')),
+      transition('hover => clicked',
+        group([
+          animate('1.5s ease-in-out'),
+          query('@fadeInOut', animateChild()),
+      ])),
+      transition('clicked => idle', group([
+        animate('1.5s ease-in-out'),
+        query('@fadeInOut', animateChild()),
+      ]))
     ]),
     trigger('rotateAnimation', [
-      state('start',
-        style({ transform: 'rotate(-180deg)'})),
-      state('end',
-        style({ transform: '{{endRotation}}'}),
-          {params: {endRotation: 'rotate(0deg)'}}),
+      state('start', style({ transform: 'rotate(-180deg)'})),
+      state('end', style({ transform: '{{endRotation}}'}), {params: {endRotation: 'rotate(0deg)'}}),
       transition('start => end',
         group([
           query('@counterRotateAnimation', animateChild()),
-          animate('2s {{delay}}s ease-out')
-        ]),
-        {params: {delay: 1}})
+          query('@fadeInOut', animateChild()),
+          animate('2s {{delay}}s ease-out'),
+      ]), {params: {delay: 1}})
     ]),
     trigger('counterRotateAnimation', [
-      state('start',
-        style({ transform: 'translate(-50%, -50%) rotate(180deg)'})),
-      state('end',
-        style({ transform: 'translate(-50%, -50%) {{endRotation}}'}),
-        {params: {endRotation: 'rotate(0deg)'}}),
-      transition('start => end', animate('2s {{delay}}s ease-out'),
-        { params: {delay: 1}})
+      state('start', style({ transform: 'translate(-50%, -50%) rotate(180deg)'})),
+      state('end', style({ transform: 'translate(-50%, -50%) {{endRotation}}'}), {params: {endRotation: 'rotate(0deg)'}}),
+      transition('start => end', animate('2s {{delay}}s ease-out'), { params: {delay: 1}})
+    ]),
+    trigger('fadeInOut', [
+      state('start', style({ opacity: 0})),
+      state('end', style({ opacity: 1})),
+      state('clicked', style({ opacity: 0})),
+      transition('start => end', animate('2s {{delay}}s ease-out'), { params: {delay: 1}}),
+      transition('end => clicked', animate('0.1s ease-out')),
+      transition('clicked => end', animate('1s 2s ease-out'))
     ]),
   ]
 })
@@ -79,6 +87,7 @@ export class PlanetPageComponent implements IPlanetPage {
   
   rotationState!: 'start' | 'end';
   animationState: 'idle' | 'hover' | 'clicked' = 'idle';
+  titleState: 'start' | 'end' | 'clicked' = 'start';
   orbitZIndex: number = zIndex.orbit;
   shadowZIndex: number = zIndex.shadowPlanet;
   planetZIndex: number = zIndex.backgroundPlanet;
@@ -100,6 +109,7 @@ export class PlanetPageComponent implements IPlanetPage {
     .subscribe((event: NavigationEnd) => {
       if (event.urlAfterRedirects === this.route) {
         this.animationState = 'clicked';
+        this.titleState = 'clicked';
         this.pageService.emitPageEvent('opened');
         this.updateZIndex();
         this.rotationState = 'end';
@@ -114,6 +124,7 @@ export class PlanetPageComponent implements IPlanetPage {
           }),
           switchMap(() => {
             this.rotationState = 'end';
+            this.titleState = 'end';
             return timer(0);
           })
         ).subscribe();
@@ -199,6 +210,7 @@ export class PlanetPageComponent implements IPlanetPage {
   //Handles animation state and z-index when the planet element is clicked
   click() {
     this.animationState = 'clicked';
+    this.titleState = 'clicked';
     this.setClickedStateDimensions();
     this.updateZIndex()
     this.router.navigate([this.route]);
@@ -221,6 +233,7 @@ export class PlanetPageComponent implements IPlanetPage {
   async resetState(pageState: 'closed' | 'opened') {
     if (this.animationState === 'clicked' && pageState === 'closed') {
       this.animationState = 'idle';
+      this.titleState = 'end';
 
       await new Promise(f => setTimeout(f, 1500)); //1.5s delay
       this.updateZIndex();

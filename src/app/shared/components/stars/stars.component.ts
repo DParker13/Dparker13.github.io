@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { NgFor } from '@angular/common';
 import { NgClass } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-stars',
@@ -13,38 +14,40 @@ import { NgClass } from '@angular/common';
 })
 export class StarsComponent implements OnInit, OnDestroy {
   stars: Star[] = [];
-  private intervalSubscription!: Subscription;
+  private twinkleSubscription!: Subscription;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.generateStars();
+    this.http.get<Star[]>('assets/documents/stars.json').subscribe({
+      next: (data: Star[]) => {
+        this.stars = data;
+      },
+      error: (error: any) => {
+        console.error('Error fetching stars data:', error);
+      }
+    });
 
-    this.intervalSubscription = interval(20).subscribe(() => {
+    this.twinkleSubscription = interval(20).subscribe(() => {
       this.toggleRandomStar();
     });
   }
 
   ngOnDestroy(): void {
     // Unsubscribe from the interval to avoid memory leaks
-    if (this.intervalSubscription) {
-      this.intervalSubscription.unsubscribe();
-    }
-  }
-
-  generateStars(): void {
-    const numberOfStars = 200;
-    for (let i = 0; i < numberOfStars; i++) {
-      this.stars.push({
-        top: Math.random() * 100 + '%',
-        left: Math.random() * 100 + '%'
-      });
+    if (this.twinkleSubscription) {
+      this.twinkleSubscription.unsubscribe();
     }
   }
 
   toggleRandomStar(): void {
     const randomIndex = Math.floor(Math.random() * this.stars.length);
-    this.stars[randomIndex].blink = !this.stars[randomIndex].blink;
+    var star: Star = this.stars[randomIndex];
+
+    if (star.blink === undefined) {
+      star.blink = false;
+    }
+    star.blink = !star.blink;
   }
 }
 

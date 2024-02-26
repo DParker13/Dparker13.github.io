@@ -1,3 +1,5 @@
-<div *ngFor="let star of stars; let i = index" class="star" [ngClass]="{ 'blink': star.blink }"
+<div *ngFor="let star of stars; let i = index"
+    class="star"
+    [ngClass]="{ 'blink': star.blink }"
     [style.top]="star.top"
     [style.left]="star.left"></div>
