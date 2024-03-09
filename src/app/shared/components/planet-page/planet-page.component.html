@@ -11,9 +11,6 @@
     <div class="circular planet clickable"
         [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"
-        [@counterRotateAnimation]="{value: rotationState,
-                                    params: {endRotation: getRotation(true),
-                                             delay: rotationDelay}}"
         [@interactAnimation]="{value: animationState,
                                params: {size: getSize(size),
                                         left: alignPlanet(),
@@ -23,6 +20,11 @@
         (mouseout)="mouseOut()"
         (click)="click()"
         [style.backgroundColor]="hexToRgb(color)">
+        <div class="circular clipping-mask">
+            <div class="scrolling-background-land"></div>
+            <div class="scrolling-background-clouds"></div>
+            <div class="shadow"></div>
+        </div>
         <div class="line"
             [@fadeInOut]="{value: titleState,
                            params: {delay: rotationDelay+2}}"

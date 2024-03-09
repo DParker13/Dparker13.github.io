@@ -30,7 +30,7 @@ export class SolarSystemComponent {
                         lineY: 0.5,
                         route: "/resume",
                         title: "RESUME"},
-                      {color: "#91CAE7",
+                      {color: "#3280B5",
                         rotation: -5,
                         size: 17,
                         orbit: 65,

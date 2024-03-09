@@ -15,6 +15,48 @@
     background-color: transparent;
 }
 
+.clipping-mask {
+    position: absolute;
+    height: inherit;
+    width: inherit;
+    overflow: hidden;
+}
+
+.scrolling-background-land {
+    position: absolute;
+    background: url(../../../../assets/images/planets/earth/earth-land.png) repeat-x;
+    background-size: contain;
+    height: 100%;
+    width: 500%;
+    animation: slide 50s linear infinite;
+}
+
+.scrolling-background-clouds {
+    position: absolute;
+    background: url(../../../../assets/images/planets/earth/earth-clouds.png) repeat-x;
+    background-size: contain;
+    height: 100%;
+    width: 500%;
+    animation: slide 40s linear infinite;
+}
+
+.shadow {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+@keyframes slide{
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-72.25%, 0, 0);
+    }
+  }
+
 .line {
     position: relative;
     width: 2vw;

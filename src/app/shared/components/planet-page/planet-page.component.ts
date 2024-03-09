@@ -53,15 +53,9 @@ function generateState(animationState: string) {
       state('end', style({ transform: '{{endRotation}}'}), {params: {endRotation: 'rotate(0deg)'}}),
       transition('start => end',
         group([
-          query('@counterRotateAnimation', animateChild()),
           query('@fadeInOut', animateChild()),
           animate('2s {{delay}}s ease-out'),
       ]), {params: {delay: 1}})
-    ]),
-    trigger('counterRotateAnimation', [
-      state('start', style({ transform: 'translate(-50%, -50%) rotate(180deg)'})),
-      state('end', style({ transform: 'translate(-50%, -50%) {{endRotation}}'}), {params: {endRotation: 'rotate(0deg)'}}),
-      transition('start => end', animate('2s {{delay}}s ease-out'), { params: {delay: 1}})
     ]),
     trigger('fadeInOut', [
       state('start', style({ opacity: 0})),
