@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { PagesService } from './shared/services/pages/pages.service';
+import { PageEvent, PagesService } from './shared/services/pages/pages.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -9,8 +9,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./app.component.less'],
   animations: [
     trigger('fadeAnimation', [
-    state('closed', style({ opacity: '0' })),
-    state('opened', style({ opacity: '1' })),
+    state('closed', style({opacity: '0'})),
+    state('opened', style({opacity: '1'})),
     transition('closed => opened', animate('1s 0.75s ease-in-out')),
     transition('opened => closed', animate('1s ease-in-out'))
     ])
@@ -20,14 +20,34 @@ export class AppComponent {
   animationState: 'closed' | 'opened' = 'closed';
   pagesZIndex: number = zIndex.hidden;
 
+  /**
+   * Constructor for initializing the router and pages service.
+   *
+   * @param {Router} router - the router for navigation
+   * @param {PagesService} pagesService - the service for managing pages
+   */
   constructor(private router: Router, public pagesService: PagesService) {
     //Subscribing to page open and close events
-    pagesService.pageState.subscribe((value: 'closed' | 'opened') => {
-      this.animationState = value;
+    pagesService.pageEvent.subscribe((event: PageEvent) => {
+      this.animationState = event.state;
       this.pageEvent()
     })
   }
 
+  /**
+   * Emits a page event with the state set to 'closed' and the color set to '#FFFFFF'.
+   *
+   * @return {void} This function does not return a value.
+   */
+  goHome() {
+    this.pagesService.emitPageEvent({state: 'closed', color: '#FFFFFF'});
+  }
+
+  /**
+   * Updates animation state, route, and z-index when page event is triggered
+   *
+   * @return {void} This function does not return a value.
+   */
   async pageEvent() {
     if (this.animationState === 'closed') {
       await new Promise(f => setTimeout(f, 1500)); //1.5s delay

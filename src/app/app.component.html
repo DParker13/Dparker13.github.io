@@ -9,7 +9,7 @@
       [@fadeAnimation]="{ value: animationState }"
       [style.z-index]="pagesZIndex">
   <span class="back-button"
-      (click)="this.pagesService.emitPageEvent('closed')" nz-icon nzType="rocket"></span>
+      (click)="goHome()" nz-icon nzType="rocket"></span>
   <div style="margin: 40px">
     <router-outlet></router-outlet>
   </div>

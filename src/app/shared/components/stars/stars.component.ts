@@ -1,14 +1,10 @@
 // stars.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
-import { NgFor } from '@angular/common';
-import { NgClass } from '@angular/common';
+import { Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-stars',
-  standalone: true,
-  imports: [NgFor, NgClass],
   templateUrl: './stars.component.html',
   styleUrl: './stars.component.css'
 })
@@ -28,9 +24,11 @@ export class StarsComponent implements OnInit, OnDestroy {
       }
     });
 
+    /*
     this.twinkleSubscription = interval(20).subscribe(() => {
       this.toggleRandomStar();
     });
+    */
   }
 
   ngOnDestroy(): void {

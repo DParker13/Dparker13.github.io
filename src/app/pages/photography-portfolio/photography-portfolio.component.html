@@ -1,19 +1,27 @@
 <ul nz-menu nzMode="horizontal">
-    <li nz-menu-item nzSelected (click)="changePortfolio(1)">
-        <span nz-icon nzType="camera"></span>
-        35mm Film
+    <li nz-menu-item [nzSelected]="portfolioID === 1" (click)="changePortfolio(1)">
+        <a [routerLink]="['/photography-portfolio', 1]">
+            <span nz-icon nzType="camera"></span>
+            35mm Film
+        </a>
     </li>
-    <li nz-menu-item (click)="changePortfolio(2)">
-        <span nz-icon nzType="star"></span>
-        Astrophotography
+    <li nz-menu-item [nzSelected]="portfolioID === 2" (click)="changePortfolio(2)">
+        <a [routerLink]="['/photography-portfolio', 2]">
+            <span nz-icon nzType="star"></span>
+            Astrophotography
+        </a>
     </li>
-    <li nz-menu-item (click)="changePortfolio(3)">
-        <span nz-icon nzType="camera" nzTheme="'twotone'"></span>
-        Digital
+    <li nz-menu-item [nzSelected]="portfolioID === 3" (click)="changePortfolio(3)">
+        <a [routerLink]="['/photography-portfolio', 3]">
+            <span nz-icon nzType="camera" nzTheme="'twotone'"></span>
+            Digital
+        </a>
     </li>
-    <li nz-menu-item (click)="changePortfolio(5)">
-        <span nz-icon nzType="picture"></span>
-        Aesthetic Tree
+    <li nz-menu-item [nzSelected]="portfolioID === 5" (click)="changePortfolio(5)">
+        <a [routerLink]="['/photography-portfolio', 5]">
+            <span nz-icon nzType="picture"></span>
+            Aesthetic Tree
+        </a>
     </li>
 </ul>
 
