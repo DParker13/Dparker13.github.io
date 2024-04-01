@@ -1,20 +1,13 @@
 import { Component, Input } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
-import { NzProgressModule } from 'ng-zorro-antd/progress';
-
 @Component({
   selector: 'app-about-me',
-  standalone: true,
-  imports: [NzProgressModule,
-            CommonModule],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.less'
 })
 export class AboutMeComponent {
-  @Input()
-  webSkills: Array<MySkills> = [];
-  programmingSkills: Array<MySkills> = [];
+  @Input() webSkills: Array<MySkills>;
+  programmingSkills: Array<MySkills>;
 
   constructor() {
     this.webSkills = [{language: "HTML", level: 90},
