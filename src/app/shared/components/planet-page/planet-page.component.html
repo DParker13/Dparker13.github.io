@@ -17,13 +17,13 @@
         [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"></div>
     <div class="circular planet clickable"
+        [style.width]="getSize(size)"
+        [style.height]="getSize(size)"
         [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"
         [@interact]="{value: animationState,
-                      params: {size: getSize(size),
-                               left: alignPlanet(),
-                               endRotation: getRotation(true),
-                               clickSize: clickSize}}"
+                      params: {left: alignPlanet(),
+                               endRotation: getRotation(true)}}"
         (mouseover)="mouseOver()"
         (mouseout)="mouseOut()"
         (click)="click()"

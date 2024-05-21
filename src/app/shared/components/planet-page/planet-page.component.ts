@@ -8,13 +8,13 @@ import { PageEvent, PagesService } from '../../services/pages/pages.service';
 function interactState(animationState: string) {
   switch (animationState) {
     case 'idle':
-      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0} });
+      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}', left: '{{left}}' }), { params: {left: 0, endRotation: 0} });
     case 'hover':
-      return state('hover', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', height: '{{size}}', width: '{{size}}', left: '{{left}}' }), { params: { size: 0, left: 0, endRotation: 0 } });
+      return state('hover', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', left: '{{left}}' }), { params: {left: 0, endRotation: 0 } });
     case 'clicked':
-      return state('clicked', style({transform: 'translate(-50%, -50%) {{endRotation}}', height: '{{clickSize}}', width: '{{clickSize}}', left: '50vw' }), { params: { clickSize: '150vw', endRotation: 0 } });
+      return state('clicked', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(10)', left: '50vw' }), { params: { endRotation: 0 } });
     default:
-      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}', height: '{{size}}', width: '{{size}}' }), { params: { size: 0, endRotation: 0 } });
+      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}' }), { params: { endRotation: 0 } });
   }
 }
 
@@ -68,8 +68,6 @@ export class PlanetPageComponent implements IPlanetPage {
   @Input() landSrc?: string = '../../../../assets/planets/images/earth/earth-land.svg';
   @Input() cloudSrc?: string = '../../../../assets/planets/images/earth/earth-clouds.svg';
   @Input() showClouds: boolean = true;
-
-  clickSize: string = '150vw';
   
   rotationState!: 'off-screen' | 'on-screen';
   animationState: 'idle' | 'hover' | 'clicked' = 'idle';
@@ -95,9 +93,7 @@ export class PlanetPageComponent implements IPlanetPage {
     .subscribe((event: NavigationEnd) => {
       var url = event.urlAfterRedirects;
 
-      if (url === this.route ||
-          url.substring(0, url.lastIndexOf('/')) === this.route.substring(0, this.route.lastIndexOf('/')) &&
-          url.substring(0, url.lastIndexOf('/')) === '/photography-portfolio') {
+      if (url.includes(this.route)) {
         this.animationState = 'clicked';
         this.titleState = 'invisible';
         this.pageService.emitPageEvent({state: 'opened', color: this.color} as PageEvent);
@@ -124,20 +120,6 @@ export class PlanetPageComponent implements IPlanetPage {
 
   ngOnDestroy() {
     this.pageService.pageEvent.unsubscribe();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(): void {
-    this.setClickedStateDimensions();
-  }
-
-  setClickedStateDimensions(): void {
-    // Determine whether height or width is larger and set dimensions accordingly
-    if (window.innerHeight > window.innerWidth) {
-      this.clickSize = "150vh";
-    } else {
-      this.clickSize = "150vw";
-    }
   }
 
   /**
@@ -240,7 +222,6 @@ export class PlanetPageComponent implements IPlanetPage {
   click() {
     this.animationState = 'clicked';
     this.titleState = 'visible';
-    this.setClickedStateDimensions(); // Change dimensions to clicked state dimensions
     this.updateZIndex(); // Update z-index to either 3 or 4
     this.router.navigate([this.route]); // Navigate to the planet's route
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IPlanetPage } from '../planet-page/planet-page.component';
 
 @Component({
@@ -6,8 +6,9 @@ import { IPlanetPage } from '../planet-page/planet-page.component';
   templateUrl: './solar-system.component.html',
   styleUrl: './solar-system.component.css'
 })
-export class SolarSystemComponent {
+export class SolarSystemComponent implements OnInit {
   public planets: IPlanetPage[];
+  public maxSize: number = 0;
 
   /**
    * Constructor for the class.
@@ -66,5 +67,9 @@ export class SolarSystemComponent {
                         landSrc: "../../../../assets/images/planets/mars/mars-land.svg",
                         cloudSrc: "../../../../assets/images/planets/mars/mars-clouds.svg",
                         showClouds: false}]
+  }
+
+  ngOnInit() {
+    this.maxSize = Math.max(...this.planets.map(planet => planet.size));
   }
 }
