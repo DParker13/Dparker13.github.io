@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StarsComponent implements OnInit, OnDestroy {
   stars: Star[] = [];
-  private twinkleSubscription!: Subscription;
+
+  private starFile$!: Subscription;
+  private twinkle$!: Subscription;
 
   constructor(private http: HttpClient) { }
 
@@ -25,16 +27,20 @@ export class StarsComponent implements OnInit, OnDestroy {
     });
 
     /*
-    this.twinkleSubscription = interval(20).subscribe(() => {
+    this.twinkle$ = interval(20).subscribe(() => {
       this.toggleRandomStar();
     });
     */
   }
 
   ngOnDestroy(): void {
+    if (this.starFile$) {
+      this.starFile$.unsubscribe();
+    }
+
     // Unsubscribe from the interval to avoid memory leaks
-    if (this.twinkleSubscription) {
-      this.twinkleSubscription.unsubscribe();
+    if (this.twinkle$) {
+      this.twinkle$.unsubscribe();
     }
   }
 

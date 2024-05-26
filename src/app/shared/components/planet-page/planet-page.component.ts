@@ -2,7 +2,7 @@ import { Component, HostListener, Input } from '@angular/core';
 import { zIndex } from 'src/app/app.component';
 import { trigger, state, style, animate, transition, animateChild, query, group } from '@angular/animations';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter, from, switchMap, timer } from 'rxjs';
+import { Subscription, filter, from, switchMap, timer } from 'rxjs';
 import { PageEvent, PagesService } from '../../services/pages/pages.service';
 
 function interactState(animationState: string) {
@@ -12,7 +12,7 @@ function interactState(animationState: string) {
     case 'hover':
       return state('hover', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', left: '{{left}}' }), { params: {left: 0, endRotation: 0 } });
     case 'clicked':
-      return state('clicked', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(10)', left: '50vw' }), { params: { endRotation: 0 } });
+      return state('clicked', style({transform: 'translate(-50%, -50%) {{endRotation}} scale({{scale}})', left: '50vw' }), {params: {scale: 10, endRotation: 0 } });
     default:
       return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}' }), { params: { endRotation: 0 } });
   }
@@ -69,6 +69,9 @@ export class PlanetPageComponent implements IPlanetPage {
   @Input() cloudSrc?: string = '../../../../assets/planets/images/earth/earth-clouds.svg';
   @Input() showClouds: boolean = true;
   
+  pageRouter$!: Subscription;
+  pageEvent$!: Subscription;
+
   rotationState!: 'off-screen' | 'on-screen';
   animationState: 'idle' | 'hover' | 'clicked' = 'idle';
   titleState: 'invisible' | 'visible' = 'invisible';
@@ -83,12 +86,12 @@ export class PlanetPageComponent implements IPlanetPage {
 
   ngOnInit() {
     //Subscribes to page open or close events
-    this.pageService.pageEvent.subscribe((event: PageEvent) => {
+    this.pageEvent$ = this.pageService.pageEvent.subscribe((event: PageEvent) => {
       this.resetState(event.state);
     });
 
     //Subscribes to router change events and will update animation/page states if the routes match
-    this.router.events
+    this.pageRouter$ = this.router.events
     .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
       var url = event.urlAfterRedirects;
@@ -109,6 +112,7 @@ export class PlanetPageComponent implements IPlanetPage {
             return timer(0);
           }),
           switchMap(() => {
+            this.animationState = 'idle';
             this.rotationState = 'on-screen';
             this.titleState = 'visible';
             return timer(0);
@@ -119,7 +123,13 @@ export class PlanetPageComponent implements IPlanetPage {
   }
 
   ngOnDestroy() {
-    this.pageService.pageEvent.unsubscribe();
+    if (this.pageEvent$) {
+      this.pageEvent$.unsubscribe();
+    }
+
+    if (this.pageRouter$) {
+      this.pageRouter$.unsubscribe();
+    }
   }
 
   /**
@@ -141,6 +151,11 @@ export class PlanetPageComponent implements IPlanetPage {
     } else {
       return `rotate(${rot}deg)`;
     }
+  }
+
+  //Calculates the scale of the planet to be two times the size of the screen
+  getScale(): number {
+    return 200 / this.size;
   }
 
   /**

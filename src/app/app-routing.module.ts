@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'home', component: EmptyComponent},
   { path: 'about-me', component: AboutMeComponent},
   { path: 'resume', component: DocumentViewerComponent},
+  { path: 'photography-portfolio', pathMatch: 'full', redirectTo: '/photography-portfolio/1'},
   { path: 'photography-portfolio/:portfolioID', component: PhotographyPortfolioComponent},
   { path: 'coding-portfolio', loadChildren: () => import('./pages/coding-portfolio/coding-portfolio.module').then(m => m.CodingPortfolioModule) }
 ];

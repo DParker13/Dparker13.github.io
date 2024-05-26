@@ -22,7 +22,8 @@
         [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"
         [@interact]="{value: animationState,
-                      params: {left: alignPlanet(),
+                      params: {scale: getScale(),
+                               left: alignPlanet(),
                                endRotation: getRotation(true)}}"
         (mouseover)="mouseOver()"
         (mouseout)="mouseOut()"

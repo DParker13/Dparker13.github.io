@@ -62,7 +62,7 @@ export class SolarSystemComponent implements OnInit {
                         size: 5,
                         orbit: 80,
                         lineY: 1,
-                        route: "/photography-portfolio/1",
+                        route: "/photography-portfolio",
                         title: "photoGrAphy portfolio",
                         landSrc: "../../../../assets/images/planets/mars/mars-land.svg",
                         cloudSrc: "../../../../assets/images/planets/mars/mars-clouds.svg",

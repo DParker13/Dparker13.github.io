@@ -29,7 +29,7 @@
             I'm always looking for ways to grow my knowledge and skills. That's why I made this website!
             This website showcases all my personal projects, skills, and interests, but it was also built entirely by me 
             using the Angular Framework. It's even self hosted and deployed on my Ubuntu server running an Ngnix web server.
-            When you check out my <a [routerLink]="['/photography-portfolio/1']">photo portfolio</a>, the images are provided by my Express and Node.Js backend.
+            When you check out my <a [routerLink]="['/photography-portfolio']">photo portfolio</a>, the images are provided by my Express and Node.Js backend.
         </p>
         <p>
             Outside of work, I enjoy working on side projects like this website, making Unity games, and learning new programming languages.
@@ -52,7 +52,7 @@
     <!-- Two -->
     <section class="card">
         <header>
-            <h2>Little List of Skills</h2>
+            <h2>Skills</h2>
         </header>
         <ul class="skills">
             <li *ngFor="let skill of webSkills">
@@ -72,5 +72,15 @@
                              nzStrokeColor="#1890ff"></nz-progress>
             </li>
         </ul>
+        <ul class="skills">
+            <li *ngFor="let skill of frameworkSkills">
+                <span>{{skill.language}}</span>
+                <nz-progress [nzShowInfo]="false"
+                             [nzPercent]="skill.level"
+                             [nzSteps]="5"
+                             nzStrokeColor="#1890ff"></nz-progress>
+            </li>
+        </ul>
+        <p style="text-align: center;">Check out my <a [routerLink]="['/resume']">Resume</a> for more information!</p>
     </section>
 </div>

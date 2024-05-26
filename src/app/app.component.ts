@@ -24,14 +24,20 @@ export class AppComponent {
    * Constructor for initializing the router and pages service.
    *
    * @param {Router} router - the router for navigation
-   * @param {PagesService} pagesService - the service for managing pages
+   * @param {PagesService} pagesService$ - the service for managing pages
    */
-  constructor(private router: Router, public pagesService: PagesService) {
+  constructor(private router: Router, public pagesService$: PagesService) {
     //Subscribing to page open and close events
-    pagesService.pageEvent.subscribe((event: PageEvent) => {
+    pagesService$.pageEvent.subscribe((event: PageEvent) => {
       this.animationState = event.state;
       this.pageEvent()
     })
+  }
+
+  OnDestroy() {
+    if (this.pagesService$.pageEvent) {
+      this.pagesService$.pageEvent.unsubscribe();
+    }
   }
 
   /**
@@ -40,7 +46,7 @@ export class AppComponent {
    * @return {void} This function does not return a value.
    */
   goHome() {
-    this.pagesService.emitPageEvent({state: 'closed', color: '#FFFFFF'});
+    this.pagesService$.emitPageEvent({state: 'closed', color: '#FFFFFF'});
   }
 
   /**
