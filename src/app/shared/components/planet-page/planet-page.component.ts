@@ -1,22 +1,9 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { zIndex } from 'src/app/app.component';
 import { trigger, state, style, animate, transition, animateChild, query, group } from '@angular/animations';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter, from, switchMap, timer } from 'rxjs';
 import { PageEvent, PagesService } from '../../services/pages/pages.service';
-
-function interactState(animationState: string) {
-  switch (animationState) {
-    case 'idle':
-      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}', left: '{{left}}' }), { params: {left: 0, endRotation: 0} });
-    case 'hover':
-      return state('hover', style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', left: '{{left}}' }), { params: {left: 0, endRotation: 0 } });
-    case 'clicked':
-      return state('clicked', style({transform: 'translate(-50%, -50%) {{endRotation}} scale({{scale}})', left: '50vw' }), {params: {scale: 10, endRotation: 0 } });
-    default:
-      return state('idle', style({transform: 'translate(-50%, -50%) {{endRotation}}' }), { params: { endRotation: 0 } });
-  }
-}
 
 @Component({
   selector: 'app-planet-page',
@@ -24,9 +11,15 @@ function interactState(animationState: string) {
   styleUrl: './planet-page.component.less',
   animations: [
     trigger('interact', [
-      interactState('idle'),
-      interactState('hover'),
-      interactState('clicked'),
+      state('idle',
+        style({transform: 'translate(-50%, -50%) {{endRotation}}', left: '{{left}}'}),
+        {params: {left: 0, endRotation: 0}}),
+      state('hover',
+        style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', left: '{{left}}'}),
+        {params: {left: 0, endRotation: 0}}),
+      state('clicked',
+        style({transform: 'translate(-50%, -50%) {{endRotation}} scale({{scale}})', left: '50vw' }),
+        {params: {scale: 0, endRotation: 0}}),
       transition('idle <=> hover', animate('0.75s cubic-bezier(0, 0.2, 0.256, 1.55)')),
       transition('hover => clicked',
         group([
@@ -69,8 +62,7 @@ export class PlanetPageComponent implements IPlanetPage {
   @Input() cloudSrc?: string = '../../../../assets/planets/images/earth/earth-clouds.svg';
   @Input() showClouds: boolean = true;
   
-  pageRouter$!: Subscription;
-  pageEvent$!: Subscription;
+  openSubscriptions$: Subscription[];
 
   rotationState!: 'off-screen' | 'on-screen';
   animationState: 'idle' | 'hover' | 'clicked' = 'idle';
@@ -82,31 +74,34 @@ export class PlanetPageComponent implements IPlanetPage {
   constructor(private pageService: PagesService, private router: Router) {
     // Convert the hexadecimal string to a number
     const hexNumber: number = parseInt(this.color.substring(1), 16);
+    this.openSubscriptions$ = [];
   }
 
   ngOnInit() {
     //Subscribes to page open or close events
-    this.pageEvent$ = this.pageService.pageEvent.subscribe((event: PageEvent) => {
+    this.openSubscriptions$.push(this.pageService.pageEvent.subscribe((event: PageEvent) => {
       this.resetState(event.state);
-    });
+    }));
 
     //Subscribes to router change events and will update animation/page states if the routes match
-    this.pageRouter$ = this.router.events
+    this.openSubscriptions$.push(this.router.events
     .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
     .subscribe((event: NavigationEnd) => {
       var url = event.urlAfterRedirects;
 
+      // Check if the route matches the this planet's route
       if (url.includes(this.route)) {
         this.animationState = 'clicked';
         this.titleState = 'invisible';
+        this.rotationState = 'on-screen';
         this.pageService.emitPageEvent({state: 'opened', color: this.color} as PageEvent);
         this.updateZIndex();
-        this.rotationState = 'on-screen';
       } else {
-        // Delay the change from 'start' to 'end' to ensure animation trigger
-        from(timer(0)).pipe(
+        var waitForAnimation$: Subscription;
+        // "Delay" the change from 'off-screen' to 'on-screen' to ensure animation trigger on page refresh
+        waitForAnimation$ = from(timer(0)).pipe(
           switchMap(() => {
-            if(this.rotationState != 'on-screen') {
+            if(this.rotationState !== 'on-screen') {
               this.rotationState = 'off-screen';
             }
             return timer(0);
@@ -117,19 +112,20 @@ export class PlanetPageComponent implements IPlanetPage {
             this.titleState = 'visible';
             return timer(0);
           })
-        ).subscribe();
+        ).subscribe({
+          complete: () => waitForAnimation$.unsubscribe()
+        });
       }
-    });
+    }));
   }
 
   ngOnDestroy() {
-    if (this.pageEvent$) {
-      this.pageEvent$.unsubscribe();
-    }
-
-    if (this.pageRouter$) {
-      this.pageRouter$.unsubscribe();
-    }
+    this.openSubscriptions$.forEach((subscription: Subscription) => {
+      if (subscription) {
+        console.log("Unsubscribing from " + subscription);
+        subscription.unsubscribe();
+      }
+    })
   }
 
   /**
@@ -155,7 +151,7 @@ export class PlanetPageComponent implements IPlanetPage {
 
   //Calculates the scale of the planet to be two times the size of the screen
   getScale(): number {
-    return 200 / this.size;
+    return 40 / this.size;
   }
 
   /**
@@ -208,11 +204,12 @@ export class PlanetPageComponent implements IPlanetPage {
     return `rgb(${r}, ${g}, ${b})`;
   }
 
+  
   /**
-   * Handles animation state and z-index when the planet element is moused over
+   * Handles animation state and z-index when the planet element is moused over.
+   * If the animation state is not already clicked, changes it to 'hover'.
    */
   mouseOver() {
-    // If the animation state is not already clicked, change it to hover
     if (this.animationState !== 'clicked') {
       this.animationState = 'hover';
     }
@@ -224,27 +221,21 @@ export class PlanetPageComponent implements IPlanetPage {
    */
   mouseOut() {
     if (this.animationState !== 'clicked') {
-      this.animationState = 'idle'; // Reset animation state to 'idle'
+      this.animationState = 'idle';
     }
   }
 
   /**
-   * Handles animation state and z-index when the planet element is clicked
-   * Sets animation state to 'clicked', title state to 'visible',
-   * changes dimensions of planet to clicked state dimensions,
-   * updates z-index to 3 or 4, and navigates to the planet's route
+   * Navigates to the planet's route
    */
   click() {
-    this.animationState = 'clicked';
-    this.titleState = 'visible';
-    this.updateZIndex(); // Update z-index to either 3 or 4
-    this.router.navigate([this.route]); // Navigate to the planet's route
+    this.router.navigate([this.route]);
   }
 
   /**
    * Updates z-index of this planet
    * The z-index of a planet is either 3 or 4
-   * When the planet is clicked, it will have a z-index of 5 to overlap the other planets
+   * When the planet is clicked, it will have a z-index of 4 to overlap the other planets
    */
   updateZIndex() {
     if (this.animationState === 'clicked') {
@@ -256,7 +247,7 @@ export class PlanetPageComponent implements IPlanetPage {
 
   /**
    * Resets the state of this planet
-   * If page event was 'closed' and this animation state is 'end' (it's zoomed in),
+   * If page event was 'closed' and this animation state is 'clicked' (it's zoomed in),
    * reset animation state to 'idle', title state to 'visible',
    * update z-index after 1.5s delay, and set dimensions to idle state dimensions
    * @param pageState the page event (closed or opened)
@@ -265,6 +256,7 @@ export class PlanetPageComponent implements IPlanetPage {
     if (this.animationState === 'clicked' && pageState === 'closed') {
       this.animationState = 'idle';
       this.titleState = 'visible';
+      this.rotationState = 'on-screen';
 
       await new Promise(f => setTimeout(f, 1500)); // 1.5s delay
       this.updateZIndex();

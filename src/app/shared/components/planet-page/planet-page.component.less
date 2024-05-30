@@ -4,6 +4,12 @@
     border-radius: 50%;
 }
 
+.shadow {
+    position: absolute;
+    background-color: black;
+    transform: translate(-50%, -50%);
+}
+
 .planet {
     position: absolute;
     transform-origin: center center;
@@ -31,8 +37,8 @@
     position: absolute;
     background-size: contain;
     height: 100%;
-    width: 500%;
-    animation: slide 50s linear infinite;
+    width: 240%;
+    animation: slide 20s linear infinite;
 }
 
 //Infinite scrolling clouds
@@ -40,12 +46,12 @@
     position: absolute;
     background-size: contain;
     height: 100%;
-    width: 500%;
-    animation: slide 40s linear infinite;
+    width: 240%;
+    animation: slide 15s linear infinite;
 }
 
 //Black shadow behind the planet
-.shadow {
+.half-shadow {
     position: absolute;
     height: 100%;
     width: 50%;
@@ -56,10 +62,10 @@
 //Animation for infinite scrolling
 @keyframes slide{
     0% {
-        transform: translate3d(0, 0, 0);
+        transform: translateX(0);
     }
     100% {
-        transform: translate3d(-72.25%, 0, 0);
+        transform: translateX(-50%);
     }
 }
 

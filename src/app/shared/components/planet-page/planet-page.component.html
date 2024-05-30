@@ -3,23 +3,22 @@
     [@rotation]="{value: rotationState,
                   params: {endRotation: getRotation(false),
                            delay: rotationDelay}}">
+    <!-- Planet Orbit -->
     <div class="circular orbit"
         [style.width]="getOrbit()"
         [style.height]="getOrbit()"
         [style.z-index]="orbitZIndex">
     </div>
-    <div class="circular"
-        style="position: absolute;
-               background-color: black;
-               transform: translate(-50%, -50%);"
+    <!-- Planet Shadow -->
+    <div class="circular shadow"
         [style.width]="getSize(size+2)"
         [style.height]="getSize(size+2)"
         [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"></div>
+    <!-- Planet -->
     <div class="circular planet clickable"
         [style.width]="getSize(size)"
         [style.height]="getSize(size)"
-        [style.left]="alignPlanet()"
         [style.z-index]="planetZIndex"
         [@interact]="{value: animationState,
                       params: {scale: getScale(),
@@ -29,19 +28,24 @@
         (mouseout)="mouseOut()"
         (click)="click()"
         [style.backgroundColor]="hexToRgb(color)">
+        <!-- Clipping Mask -->
         <div class="circular clipping-mask">
+            <!-- Land -->
+            <div class="scrolling-background-land"
+                [style.background]="'url(' + landSrc + ') repeat-x'"></div>
+            <!-- Clouds -->
             <div class="scrolling-background-clouds"
                 [style.background]="'url(' + cloudSrc + ') repeat-x'"
                 *ngIf="showClouds"></div>
-            <div class="scrolling-background-land"
-                [style.background]="'url(' + landSrc + ') repeat-x'"></div>
-            <div class="shadow"></div>
+            <div class="half-shadow"></div>
         </div>
+        <!-- Title and Line -->
         <div class="line"
             [@fadeInOut]="{value: titleState,
                            params: {delay: rotationDelay+2}}"
             [style.left]="getSize(size/1.25)"
             [style.top]="getSize(lineY * -1)">
+            <!-- Title -->
             <div class="title">
                 {{title}}
             </div>

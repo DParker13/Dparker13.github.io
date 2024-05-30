@@ -1,50 +1,50 @@
-<section class="card">
-    <div class="header-container">
-        <span class="icon" nz-icon nzType="left-circle" nzTheme="outline" [routerLink]="'/coding-portfolio'"></span>
-        <h1>
-            tRAnquility
-        </h1>
-        <div></div>
-    </div>
-    <p>
-        This project was heavily inspired by the famous Stardew Valley game. When I initially began this project I was also learning Unity and C# along the way, so it took me around a month to randomly generate a perlin noise image and map different tiles to certain levels of the image.
-    </p>
-    <div>
-        <img src="../../../../assets/images/tranquility/tranquility1.gif" alt="Map Generator"/>
-    </div>
-    <p>
-        After I got the very basic map creation working, I got to work making the tiles know who their neighbors are. 
-        This allows for the tile to change their sprite to match up with similar neighbors so it looks more organic.
-    </p>
-    <p>
-        For Tranquility, I spent a huge amount of time making the sprites and music. 
-        Everything you see below was made by me and took around two months to create (music and sprites). 
-        Coding the map took upwards of four to five months to complete because I was still learning how Unity worked.
-    </p>
-    <div>
-        <img src="../../../../assets/images/tranquility/tranquility2.gif" alt="Main Menu"/>
-    </div>
-    <p>
-        Here is the main menu music that I created in LMMS. Surprisingly I made this song within an hour. 
-        I guess I got lucky coming up with a simple melody that I enjoyed and felt fit the overall theme.
-    </p>
-    <div>
-        <audio controls style="text-align: center;">
-            <source src="../../../../assets/sounds/Summer.wav" type="audio/wav">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-    <p>
-        If you want to see more than just gif's of the game, check out my youtube channel <a href="https://www.youtube.com/user/xonor13">here</a>. You can also check out this embedded video that shows more of the game.
-    </p>
-    <div>
-        <iframe width="50%" height="10%" src="https://www.youtube.com/embed/WwHEl_H4MFk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <p>
-        Right now, I am in the process of re-working the entire map generator again, 
-        and I'm making it even more modular and easily expandable for the future.
-    </p>
-    <footer align="center">
-        <a href="dev_log_tranquility.html"><h3>Tranquility Dev Log</h3></a>
-    </footer>
-</section>
+<div class="inner-content">
+    <section class="card">
+        <div class="header-container">
+            <span class="icon" nz-icon nzType="left-circle" nzTheme="outline" [routerLink]="'/coding-portfolio'"></span>
+            <h1>
+                tRAnquility
+            </h1>
+            <div></div>
+        </div>
+        <p>
+            This project was heavily inspired by the famous Stardew Valley game. When I initially began this project I was also learning Unity and C# along the way, so it took me around a month to randomly generate a perlin noise image and map different tiles to certain levels of the image.
+        </p>
+        <div>
+            <img src="../../../../assets/images/tranquility/tranquility1.gif" alt="Map Generator"/>
+        </div>
+        <p>
+            After I got the very basic map creation working, I got to work making the tiles know who their neighbors are. 
+            This allows for the tile to change their sprite to match up with similar neighbors so it looks more organic.
+        </p>
+        <p>
+            For Tranquility, I spent a huge amount of time making the sprites and music. 
+            Everything you see below was made by me and took around two months to create (music and sprites). 
+            Coding the map took upwards of four to five months to complete because I was still learning how Unity worked.
+        </p>
+        <div>
+            <img src="../../../../assets/images/tranquility/tranquility2.gif" alt="Main Menu"/>
+        </div>
+        <p>
+            Here is the main menu music that I created in LMMS. Surprisingly I made this song within an hour. 
+            I guess I got lucky coming up with a simple melody that I enjoyed and felt fit the overall theme.
+        </p>
+        <div>
+            <audio controls style="text-align: center;">
+                <source src="../../../../assets/sounds/Summer.wav" type="audio/wav">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <p>
+            If you want to see more than just gif's of the game, check out my youtube channel <a href="https://www.youtube.com/user/xonor13">here</a>. You can also check out this embedded video that shows more of the game.
+        </p>
+        <div>
+            <iframe width="50%" height="10%" src="https://www.youtube.com/embed/WwHEl_H4MFk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>
+            Right now, I am in the process of re-working the entire map generator again, 
+            and I'm making it even more modular and easily expandable for the future.
+        </p>
+        <a class="page-link" [routerLink]="'dev-log'"><h2>Tranquility Dev Log</h2></a>
+    </section>
+</div>

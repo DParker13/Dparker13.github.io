@@ -4,7 +4,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<app-solar-system></app-solar-system>
+<app-solar-system id="section-blur" [class.transition]="animationState === 'opened'"></app-solar-system>
 <div class="inner-content"
       [@fadeAnimation]="{ value: animationState }"
       [style.z-index]="pagesZIndex">

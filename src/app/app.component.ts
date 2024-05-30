@@ -9,10 +9,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   styleUrls: ['./app.component.less'],
   animations: [
     trigger('fadeAnimation', [
-    state('closed', style({opacity: '0'})),
-    state('opened', style({opacity: '1'})),
-    transition('closed => opened', animate('1s 0.75s ease-in-out')),
-    transition('opened => closed', animate('1s ease-in-out'))
+      state('closed', style({opacity: '0'})),
+      state('opened', style({opacity: '1'})),
+      transition('closed => opened', animate('1s 0.75s ease-in-out')),
+      transition('opened => closed', animate('1s ease-in-out'))
     ])
   ]
 })
@@ -45,7 +45,7 @@ export class AppComponent {
    *
    * @return {void} This function does not return a value.
    */
-  goHome() {
+  goHome(): void {
     this.pagesService$.emitPageEvent({state: 'closed', color: '#FFFFFF'});
   }
 
@@ -54,7 +54,7 @@ export class AppComponent {
    *
    * @return {void} This function does not return a value.
    */
-  async pageEvent() {
+  async pageEvent(): Promise<void> {
     if (this.animationState === 'closed') {
       await new Promise(f => setTimeout(f, 1500)); //1.5s delay
       this.router.navigate(['/home']);

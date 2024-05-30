@@ -1,6 +1,8 @@
 import { CodingPortfolioComponent } from './coding-portfolio.component';
 import { TranquilityProjectComponent } from './tranquility-project/tranquility-project.component';
+import { TranquilityDevLogComponent } from './tranquility-dev-log/tranquility-dev-log.component';
 import { PolySolaceProjectComponent } from './poly-solace-project/poly-solace-project.component';
+import { PolySolaceDevLogComponent } from './poly-solace-dev-log/poly-solace-dev-log.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,7 +15,9 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   declarations: [
     CodingPortfolioComponent,
     TranquilityProjectComponent,
-    PolySolaceProjectComponent
+    TranquilityDevLogComponent,
+    PolySolaceProjectComponent,
+    PolySolaceDevLogComponent
   ],
   imports: [
     CommonModule,
