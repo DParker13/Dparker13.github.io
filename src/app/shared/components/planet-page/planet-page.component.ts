@@ -1,8 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { zIndex } from 'src/app/app.component';
 import { trigger, state, style, animate, transition, animateChild, query, group } from '@angular/animations';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter, from, switchMap, timer } from 'rxjs';
+import { Subscription, filter, delay, of } from 'rxjs';
 import { PageEvent, PagesService } from '../../services/pages/pages.service';
 
 @Component({
@@ -64,22 +64,23 @@ export class PlanetPageComponent implements IPlanetPage {
   
   openSubscriptions$: Subscription[];
 
-  rotationState!: 'off-screen' | 'on-screen';
+  rotationState: 'off-screen' | 'on-screen';
   animationState: 'idle' | 'hover' | 'clicked' = 'idle';
   titleState: 'invisible' | 'visible' = 'invisible';
   orbitZIndex: number = zIndex.orbit;
   shadowZIndex: number = zIndex.shadowPlanet;
   planetZIndex: number = zIndex.backgroundPlanet;
 
-  constructor(private pageService: PagesService, private router: Router) {
+  constructor(private pageService$: PagesService, private router: Router, private cdr: ChangeDetectorRef) {
     // Convert the hexadecimal string to a number
     const hexNumber: number = parseInt(this.color.substring(1), 16);
+    this.rotationState = 'off-screen'
     this.openSubscriptions$ = [];
   }
 
   ngOnInit() {
     //Subscribes to page open or close events
-    this.openSubscriptions$.push(this.pageService.pageEvent.subscribe((event: PageEvent) => {
+    this.openSubscriptions$.push(this.pageService$.pageEvent.subscribe((event: PageEvent) => {
       this.resetState(event.state);
     }));
 
@@ -94,29 +95,18 @@ export class PlanetPageComponent implements IPlanetPage {
         this.animationState = 'clicked';
         this.titleState = 'invisible';
         this.rotationState = 'on-screen';
-        this.pageService.emitPageEvent({state: 'opened', color: this.color} as PageEvent);
+        this.pageService$.emitPageEvent({state: 'opened', color: this.color} as PageEvent);
         this.updateZIndex();
-      } else {
-        var waitForAnimation$: Subscription;
-        // "Delay" the change from 'off-screen' to 'on-screen' to ensure animation trigger on page refresh
-        waitForAnimation$ = from(timer(0)).pipe(
-          switchMap(() => {
-            if(this.rotationState !== 'on-screen') {
-              this.rotationState = 'off-screen';
-            }
-            return timer(0);
-          }),
-          switchMap(() => {
-            this.animationState = 'idle';
-            this.rotationState = 'on-screen';
-            this.titleState = 'visible';
-            return timer(0);
-          })
-        ).subscribe({
-          complete: () => waitForAnimation$.unsubscribe()
-        });
       }
     }));
+  }
+
+  ngAfterViewInit() {
+    setTimeout( () => {
+      this.rotationState = 'on-screen';
+      this.titleState = 'visible';
+      this.cdr.detectChanges();
+    }, 200);
   }
 
   ngOnDestroy() {
@@ -243,6 +233,7 @@ export class PlanetPageComponent implements IPlanetPage {
     } else {
       this.planetZIndex = zIndex.backgroundPlanet; // background planet (index 3)
     }
+    console.log("z updated")
   }
 
   /**
@@ -258,8 +249,7 @@ export class PlanetPageComponent implements IPlanetPage {
       this.titleState = 'visible';
       this.rotationState = 'on-screen';
 
-      await new Promise(f => setTimeout(f, 1500)); // 1.5s delay
-      this.updateZIndex();
+      setTimeout(() => { this.updateZIndex() }, 1500);
     }
   }
 }

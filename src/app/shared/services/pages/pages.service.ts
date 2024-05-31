@@ -22,7 +22,7 @@ export class PagesService {
    * Emits an event when the page is opened or closed
    * @param event The event containing the page's state and color
    */
-  emitPageEvent(event: PageEvent) {
+  async emitPageEvent(event: PageEvent) {
     // Update the service's state to match the event's state
     this.state = event.state;
     

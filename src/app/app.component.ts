@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { PageEvent, PagesService } from './shared/services/pages/pages.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -7,6 +7,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fadeAnimation', [
       state('closed', style({opacity: '0'})),
@@ -30,7 +31,7 @@ export class AppComponent {
     //Subscribing to page open and close events
     pagesService$.pageEvent.subscribe((event: PageEvent) => {
       this.animationState = event.state;
-      this.pageEvent()
+      this.onPageEvent();
     })
   }
 
@@ -45,7 +46,7 @@ export class AppComponent {
    *
    * @return {void} This function does not return a value.
    */
-  goHome(): void {
+  async goHome(): Promise<void> {
     this.pagesService$.emitPageEvent({state: 'closed', color: '#FFFFFF'});
   }
 
@@ -54,11 +55,12 @@ export class AppComponent {
    *
    * @return {void} This function does not return a value.
    */
-  async pageEvent(): Promise<void> {
+  async onPageEvent(): Promise<void> {
     if (this.animationState === 'closed') {
-      await new Promise(f => setTimeout(f, 1500)); //1.5s delay
-      this.router.navigate(['/home']);
-      this.pagesZIndex = zIndex.hidden; //hides routed page
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+        this.pagesZIndex = zIndex.hidden; //hides routed page
+      }, 1500);
     }
     else {
       this.pagesZIndex = zIndex.pageShowing; //Moves routed page to front

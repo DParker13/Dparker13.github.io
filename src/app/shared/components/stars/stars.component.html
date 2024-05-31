@@ -1,5 +1,4 @@
-<div *ngFor="let star of stars; let i = index"
+<div *ngFor="let star of stars$ | async"
     class="star"
-    [ngClass]="{ 'blink': star.blink }"
     [style.top]="star.top"
     [style.left]="star.left"></div>
