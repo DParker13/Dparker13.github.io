@@ -14,6 +14,6 @@ export class ImageService {
    * @return {Observable<NzImage[]>} An observable of type NzImage[] representing the retrieved images
    */
   getAllImages(portfolio_id: number): Observable<NzImage[]> {
-    return this.http.get<NzImage[]>('https://www.danielwparker.space/api/v1/images/' + portfolio_id)
+    return this.http.get<NzImage[]>('https://www.danielparker.space/api/v1/images/' + portfolio_id)
   }
 }
