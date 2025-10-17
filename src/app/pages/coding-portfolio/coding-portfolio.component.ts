@@ -11,6 +11,10 @@ export class CodingPortfolioComponent {
 
   constructor() {
     this.projects = [
+      {image: {src: "assets/images/poly_solace/new_menu.gif"},
+      name: "Game Engine",
+      description: "Custom Game Engine built using SDL3 in C++",
+      route: "game-engine-project"},
       {image: {src: "assets/images/tranquility/tranquility2.gif"},
       name: "Tranquility",
       description: "2D Procedurally Generated Survival Game",

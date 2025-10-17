@@ -3,6 +3,7 @@ import { TranquilityProjectComponent } from './tranquility-project/tranquility-p
 import { TranquilityDevLogComponent } from './tranquility-dev-log/tranquility-dev-log.component';
 import { PolySolaceProjectComponent } from './poly-solace-project/poly-solace-project.component';
 import { PolySolaceDevLogComponent } from './poly-solace-dev-log/poly-solace-dev-log.component';
+import { GameEngineProjectComponent } from './game-engine-project/game-engine-project.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     TranquilityProjectComponent,
     TranquilityDevLogComponent,
     PolySolaceProjectComponent,
-    PolySolaceDevLogComponent
+    PolySolaceDevLogComponent,
+    GameEngineProjectComponent
   ],
   imports: [
     CommonModule,
