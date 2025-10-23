@@ -13,6 +13,9 @@
 .planet {
     position: absolute;
     transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000;
 }
 
 //Orbit of the planet
@@ -39,6 +42,7 @@
     height: 100%;
     width: 240%;
     animation: slide 20s linear infinite;
+    will-change: transform;
 }
 
 //Infinite scrolling clouds
@@ -48,6 +52,7 @@
     height: 100%;
     width: 240%;
     animation: slide 15s linear infinite;
+    will-change: transform;
 }
 
 //Black shadow behind the planet
@@ -69,23 +74,12 @@
     }
 }
 
-//Line connecting planet and title
-.line {
-    position: relative;
-    width: 2vw;
-    height: 0.05vw;
-    background-color: rgba(255, 255, 255, 0.75);
-    transform: rotate(-50deg);
-}
-
 //Title of the planet
 .title {
-    position: relative;
+    position: absolute;
     display: inline-block;
     text-align: right;
     font-size: 1.25vw;
-    left: 2.5vw;
-    transform: translate(-25%) rotate(50deg);
     font-family: "Major Mono Display", monospace;
     font-weight: 400;
     font-style: normal;

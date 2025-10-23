@@ -39,16 +39,13 @@
                 *ngIf="showClouds"></div>
             <div class="half-shadow"></div>
         </div>
-        <!-- Title and Line -->
-        <div class="line"
+        <!-- Title -->
+        <div class="title"
             [@fadeInOut]="{value: titleState,
-                           params: {delay: rotationDelay+2}}"
-            [style.left]="getSize(size/1.25)"
-            [style.top]="getSize(lineY * -1)">
-            <!-- Title -->
-            <div class="title">
-                {{title}}
-            </div>
+                            params: {delay: rotationDelay+2}}"
+            [style.left]="getSize(size)"
+            [style.top]="getSize(textHeight * -1)">
+            {{title}}
         </div>
     </div>
 </div>

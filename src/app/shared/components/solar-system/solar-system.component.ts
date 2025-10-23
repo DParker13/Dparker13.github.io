@@ -18,7 +18,7 @@ export class SolarSystemComponent implements OnInit {
    * - rotation: number representing the rotation angle of the planet.
    * - size: number representing the size of the planet.
    * - orbit: number representing the orbit radius of the planet.
-   * - lineY: number representing the Y-coordinate of the line.
+   * - textHeight: number representing the Y-coordinate of the text.
    * - route: string representing the route of the planet.
    * - title: string representing the title of the planet.
    * - landSrc: string representing the source of the land image.
@@ -31,7 +31,7 @@ export class SolarSystemComponent implements OnInit {
                         rotation: 0,
                         size: 9,
                         orbit: 30,
-                        lineY: 0.5,
+                        textHeight: 0.5,
                         route: "/about-me",
                         title: "About",
                         landSrc: "../../../../assets/images/planets/mars/mars-land.svg",
@@ -41,7 +41,7 @@ export class SolarSystemComponent implements OnInit {
                         rotation: 10,
                         size: 11,
                         orbit: 45,
-                        lineY: 0.5,
+                        textHeight: 0.5,
                         route: "/resume",
                         title: "resuMe",
                         landSrc: "../../../../assets/images/planets/mars/mars-land.svg",
@@ -51,7 +51,7 @@ export class SolarSystemComponent implements OnInit {
                         rotation: -5,
                         size: 17,
                         orbit: 65,
-                        lineY: -0.25,
+                        textHeight: -0.25,
                         route: "/coding-portfolio",
                         title: "proGrAmminG portfolio",
                         landSrc: "../../../../assets/images/planets/earth/earth-land.svg",
@@ -61,7 +61,7 @@ export class SolarSystemComponent implements OnInit {
                         rotation: 5,
                         size: 5,
                         orbit: 80,
-                        lineY: 1,
+                        textHeight: 1,
                         route: "/photography-portfolio",
                         title: "photoGrAphy portfolio",
                         landSrc: "../../../../assets/images/planets/mars/mars-land.svg",

@@ -12,13 +12,13 @@ import { PageEvent, PagesService } from '../../services/pages/pages.service';
   animations: [
     trigger('interact', [
       state('idle',
-        style({transform: 'translate(-50%, -50%) {{endRotation}}', left: '{{left}}'}),
+        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}}', left: '{{left}}'}),
         {params: {left: 0, endRotation: 0}}),
       state('hover',
-        style({transform: 'translate(-50%, -50%) {{endRotation}} scale(1.05)', left: '{{left}}'}),
+        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale(1.05)', left: '{{left}}'}),
         {params: {left: 0, endRotation: 0}}),
       state('clicked',
-        style({transform: 'translate(-50%, -50%) {{endRotation}} scale({{scale}})', left: '50vw' }),
+        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale({{scale}})', left: '50vw' }),
         {params: {scale: 0, endRotation: 0}}),
       transition('idle <=> hover', animate('0.75s cubic-bezier(0, 0.2, 0.256, 1.55)')),
       transition('hover => clicked',
@@ -53,7 +53,7 @@ export class PlanetPageComponent implements IPlanetPage {
   @Input() color: string = "#FFFFFF";
   @Input() size: number = 10;
   @Input() orbit: number = 50;
-  @Input() lineY: number = 0.5;
+  @Input() textHeight: number = 0.5;
   @Input() rotation: number = 0;
   @Input() rotationDelay: number = 1;
   @Input() route: string = '/';
@@ -258,7 +258,7 @@ export interface IPlanetPage {
   color: string;
   size: number;
   orbit: number;
-  lineY: number;
+  textHeight: number;
   rotation: number;
   route: string;
   title: string;
