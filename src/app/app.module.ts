@@ -36,7 +36,7 @@ registerLocaleData(en);
     SolarSystemComponent,
     PlanetPageComponent,
     StarsComponent,
-    AboutMeComponent
+    AboutMeComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,11 +48,9 @@ registerLocaleData(en);
     PhotographyPortfolioModule,
     NzMenuModule,
     NzIconModule,
-    NzProgressModule
+    NzProgressModule,
   ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

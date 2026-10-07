@@ -15,6 +15,5 @@
       "name": "Launch Firefox",
       "file": "${workspaceFolder}"
     }
-
   ]
 }

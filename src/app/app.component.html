@@ -1,17 +1,51 @@
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/icon/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="assets/images/icon/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="assets/images/icon/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="assets/images/icon/favicon-16x16.png"
+/>
+<link
+  rel="manifest"
+  href="/site.webmanifest"
+/>
 
-<app-solar-system id="section-blur" [class.transition]="animationState === 'opened'"></app-solar-system>
-<div class="inner-content"
-      [@fadeAnimation]="{ value: animationState }"
-      [style.z-index]="pagesZIndex">
-  <span class="back-button"
-      (click)="goHome()" nz-icon nzType="rocket"></span>
-  <h3 class="back-button-label">Back to Orbit</h3>
-  <div>
+<app-solar-system
+  id="section-blur"
+  [class.transition]="animationState === 'opened'"
+></app-solar-system>
+<div
+  class="inner-content"
+  [@fadeAnimation]="{ value: animationState }"
+  [style.z-index]="pagesZIndex"
+>
+  <header class="page-header">
+    <button
+      type="button"
+      class="back-button"
+      aria-label="Back to Orbit"
+      title="Back to Orbit"
+      (click)="goHome()"
+      nz-icon
+      nzType="rocket"
+    ></button>
+    <h1 class="page-title">{{ title() }}</h1>
+  </header>
+  <div
+    class="page-content"
+    #pageContent
+  >
     <router-outlet></router-outlet>
   </div>
 </div>

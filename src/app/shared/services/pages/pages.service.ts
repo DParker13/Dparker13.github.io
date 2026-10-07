@@ -2,7 +2,7 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 import { NzConfigService } from 'ng-zorro-antd/core/config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PagesService {
   public state: 'closed' | 'opened' = 'closed';
@@ -25,16 +25,15 @@ export class PagesService {
   async emitPageEvent(event: PageEvent) {
     // Update the service's state to match the event's state
     this.state = event.state;
-    
+
     // Set the primary color of the theme to match the event's color
     this.nzConfigService.set('theme', {
-      primaryColor: event.color
+      primaryColor: event.color,
     });
 
     // Emit the event to any listeners
     this.pageEvent.emit(event);
   }
-
 }
 
 export interface PageEvent {

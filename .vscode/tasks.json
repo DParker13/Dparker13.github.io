@@ -37,6 +37,13 @@
           }
         }
       }
+    },
+    {
+      "label": "lint fix",
+      "type": "shell",
+      "command": "npx",
+      "args": ["eslint", "--fix"],
+      "problemMatcher": []
     }
   ]
 }

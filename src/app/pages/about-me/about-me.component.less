@@ -1,52 +1,75 @@
-@import "../../app.component.less";
+@import '../../shared/styles/page.less';
 
-h1, h2 {
-    color: white;
+h1,
+h2 {
+  color: white;
 }
 
 h1 {
-    font-family: "Lobster", cursive;
-    margin: 0 0 0 20px;
-    font-weight: 600;
-    font-size: 4em;
-    vertical-align: middle;
-    text-align: center;
-    transition: vertical-align linear 1s;
+  font-family: 'Lobster', cursive;
+  font-weight: 600;
+  font-size: 4em;
+  text-align: center;
 }
 
 h2 {
-    font-size: 3em;
+  font-size: 3em;
 }
 
-.skills {
-    display:inline-block;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skills-grid li {
+  min-width: 0;
+}
+
+.skills-grid li span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+}
+
+.skills-grid nz-progress {
+  display: block;
 }
 
 .profile-pic {
-    float: right;
-    width: 25%;
-    height: 25%;
-    border-radius: 5px;
+  float: right;
+  width: 25%;
+  height: 25%;
+  border-radius: 5px;
+}
+
+.resume-link {
+  margin-top: 20px;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 3em;
-    }
+  h1 {
+    font-size: 3em;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
 }
 
 @media (max-width: 400px) {
-    h1 {
-        font-size: 1.9em;
-    }
+  h1 {
+    font-size: 1.9em;
+  }
 }
 
 @media (max-width: 300px) {
-    h1 {
-        font-size: 1em;
-    }
+  h1 {
+    font-size: 1em;
+  }
 }

@@ -1,38 +1,84 @@
-<ul nz-menu nzMode="horizontal">
-    <li nz-menu-item [nzSelected]="portfolioID === 1" (click)="changePortfolio(1)">
-        <a [routerLink]="['/photography-portfolio', 1]">
-            <span nz-icon nzType="camera"></span>
-            35mm Film
-        </a>
+<nav aria-label="Photography portfolios">
+  <ul
+    nz-menu
+    nzMode="horizontal"
+  >
+    <li
+      nz-menu-item
+      [nzSelected]="portfolioID === 1"
+    >
+      <a
+        [routerLink]="['/photography-portfolio', 1]"
+        [attr.aria-current]="portfolioID === 1 ? 'page' : null"
+      >
+        <span
+          nz-icon
+          nzType="camera"
+        ></span>
+        35mm Film
+      </a>
     </li>
-    <li nz-menu-item [nzSelected]="portfolioID === 2" (click)="changePortfolio(2)">
-        <a [routerLink]="['/photography-portfolio', 2]">
-            <span nz-icon nzType="star"></span>
-            Astrophotography
-        </a>
+    <li
+      nz-menu-item
+      [nzSelected]="portfolioID === 2"
+    >
+      <a
+        [routerLink]="['/photography-portfolio', 2]"
+        [attr.aria-current]="portfolioID === 2 ? 'page' : null"
+      >
+        <span
+          nz-icon
+          nzType="star"
+        ></span>
+        Astrophotography
+      </a>
     </li>
-    <li nz-menu-item [nzSelected]="portfolioID === 3" (click)="changePortfolio(3)">
-        <a [routerLink]="['/photography-portfolio', 3]">
-            <span nz-icon nzType="camera" nzTheme="'twotone'"></span>
-            Digital
-        </a>
+    <li
+      nz-menu-item
+      [nzSelected]="portfolioID === 3"
+    >
+      <a
+        [routerLink]="['/photography-portfolio', 3]"
+        [attr.aria-current]="portfolioID === 3 ? 'page' : null"
+      >
+        <span
+          nz-icon
+          nzType="camera"
+          nzTheme="twotone"
+        ></span>
+        Digital
+      </a>
     </li>
-    <li nz-menu-item [nzSelected]="portfolioID === 5" (click)="changePortfolio(5)">
-        <a [routerLink]="['/photography-portfolio', 5]">
-            <span nz-icon nzType="picture"></span>
-            Aesthetic Tree
-        </a>
+    <li
+      nz-menu-item
+      [nzSelected]="portfolioID === 5"
+    >
+      <a
+        [routerLink]="['/photography-portfolio', 5]"
+        [attr.aria-current]="portfolioID === 5 ? 'page' : null"
+      >
+        <span
+          nz-icon
+          nzType="picture"
+        ></span>
+        Aesthetic Tree
+      </a>
     </li>
-</ul>
+  </ul>
+</nav>
 
-<div id="inner-body">
-    <h1 class="title">{{portfolioName}} poRtfolio</h1>
-    <nz-image-group  id="images-wrapper">
-        <img nz-image
-            *ngFor="let image of images$ | async"
-            [nzSrc]="image.src"
-            [alt]="image.alt"
-            [nzFallback]="fallback"
-            class="image-card" />
-    </nz-image-group>
+<div class="gallery-content">
+  <h1 class="title">{{ portfolioName }}</h1>
+  <nz-image-group id="images-wrapper">
+    <img
+      nz-image
+      *ngFor="let image of images$ | async"
+      [nzSrc]="image.src"
+      [alt]="image.alt"
+      [nzFallback]="fallback"
+      loading="lazy"
+      decoding="async"
+      class="image-card"
+    />
+  </nz-image-group>
 </div>

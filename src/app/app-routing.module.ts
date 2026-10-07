@@ -7,17 +7,26 @@ import { EmptyComponent } from './shared/components/empty/empty.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: 'home', component: EmptyComponent},
-  { path: 'about-me', component: AboutMeComponent},
-  { path: 'resume', component: DocumentViewerComponent},
-  { path: 'photography-portfolio', pathMatch: 'full', redirectTo: '/photography-portfolio/1'},
-  { path: 'photography-portfolio/:portfolioID', component: PhotographyPortfolioComponent},
-  { path: 'coding-portfolio', loadChildren: () => import('./pages/coding-portfolio/coding-portfolio.module').then(m => m.CodingPortfolioModule) }
+  { path: 'home', component: EmptyComponent },
+  { path: 'about-me', component: AboutMeComponent, data: { pageTitle: 'About Me' } },
+  { path: 'resume', component: DocumentViewerComponent, data: { pageTitle: 'Resume' } },
+  { path: 'photography-portfolio', pathMatch: 'full', redirectTo: '/photography-portfolio/1' },
+  {
+    path: 'photography-portfolio/:portfolioID',
+    component: PhotographyPortfolioComponent,
+    data: { pageTitle: 'Photography Portfolio' },
+  },
+  {
+    path: 'personal-projects',
+    loadChildren: () =>
+      import('./pages/personal-projects/personal-projects.module').then(
+        (m) => m.PersonalProjectsModule,
+      ),
+  },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

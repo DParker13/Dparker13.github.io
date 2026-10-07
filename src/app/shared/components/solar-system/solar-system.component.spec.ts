@@ -8,10 +8,9 @@ describe('SolarSystemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SolarSystemComponent]
-    })
-    .compileComponents();
-    
+      imports: [SolarSystemComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SolarSystemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

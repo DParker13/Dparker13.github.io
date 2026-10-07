@@ -1,7 +1,16 @@
-<nz-card nzHoverable [nzCover]="coverTemplate">
-    <nz-card-meta [nzTitle]="name" [nzDescription]="description"></nz-card-meta>
+<nz-card
+  nzHoverable
+  [nzCover]="coverTemplate"
+>
+  <nz-card-meta
+    [nzTitle]="name"
+    [nzDescription]="description"
+  ></nz-card-meta>
 </nz-card>
 
 <ng-template #coverTemplate>
-    <img [src]="imageDetail.src"/>
+  <img
+    [src]="imageDetail.src"
+    [alt]="name || description"
+  />
 </ng-template>

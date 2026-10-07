@@ -8,10 +8,9 @@ describe('PlanetPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlanetPageComponent]
-    })
-    .compileComponents();
-    
+      imports: [PlanetPageComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(PlanetPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,99 +1,91 @@
-@import "../../../../fonts.less";
-
 .circular {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .shadow {
-    position: absolute;
-    background-color: black;
-    transform: translate(-50%, -50%);
+  background-color: black;
 }
 
 .planet {
-    position: absolute;
-    transform-origin: center center;
-    will-change: transform;
-    backface-visibility: hidden;
-    perspective: 1000;
+  transform-origin: center center;
+  backface-visibility: hidden;
 }
 
-//Orbit of the planet
-.orbit {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    border: 2px solid gray;
-    background-color: transparent;
-}
-
-//Clipping mask for scrolling clouds and land
-.clipping-mask {
-    position: absolute;
-    height: inherit;
-    width: inherit;
-    overflow: hidden;
-}
-
-//Infinite scrolling background
-.scrolling-background-land {
-    position: absolute;
-    background-size: contain;
-    height: 100%;
-    width: 240%;
-    animation: slide 20s linear infinite;
-    will-change: transform;
-}
-
-//Infinite scrolling clouds
-.scrolling-background-clouds {
-    position: absolute;
-    background-size: contain;
-    height: 100%;
-    width: 240%;
-    animation: slide 15s linear infinite;
-    will-change: transform;
-}
-
-//Black shadow behind the planet
-.half-shadow {
-    position: absolute;
-    height: 100%;
-    width: 50%;
-    left: 50%;
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
-//Animation for infinite scrolling
-@keyframes slide{
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-//Title of the planet
+.shadow,
+.planet,
+.orbit,
+.clipping-mask,
+.scrolling-background-land,
+.scrolling-background-clouds,
+.half-shadow,
 .title {
-    position: absolute;
-    display: inline-block;
-    text-align: right;
-    font-size: 1.25vw;
-    font-family: "Major Mono Display", monospace;
-    font-weight: 400;
-    font-style: normal;
-    color: rgba(255, 255, 255, 0.75);
+  position: absolute;
 }
 
-//Axis of rotation for planet
+.shadow,
+.orbit {
+  transform: translate(-50%, -50%);
+}
+
+.orbit {
+  pointer-events: none;
+  border: 2px solid gray;
+  background-color: transparent;
+}
+
+.clipping-mask {
+  height: inherit;
+  width: inherit;
+  overflow: hidden;
+}
+
+.scrolling-background-land,
+.scrolling-background-clouds {
+  background-size: contain;
+  height: 100%;
+  width: 240%;
+}
+
+.scrolling-background-land {
+  animation: slide 20s linear infinite;
+}
+
+.scrolling-background-clouds {
+  animation: slide 15s linear infinite;
+}
+
+.half-shadow {
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.title {
+  display: inline-block;
+  text-align: right;
+  font-size: 1.25vw;
+  font-family: 'Major Mono Display', monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .rotation {
-    position: relative;
-    transform-origin: center left;
-    top: 50%;
+  position: relative;
+  transform-origin: center left;
+  top: 50%;
 }
 
-//Clickable planet
 .clickable {
-    cursor: pointer; /* Set cursor to pointer to indicate it's clickable */
+  cursor: pointer;
 }

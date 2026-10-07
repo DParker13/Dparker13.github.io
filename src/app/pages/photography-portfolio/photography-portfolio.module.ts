@@ -10,12 +10,6 @@ import { PhotographyPortfolioComponent } from './photography-portfolio.component
 
 @NgModule({
   declarations: [PhotographyPortfolioComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    NzImageModule,
-    NzGridModule,
-    NzMenuModule
-  ]
+  imports: [CommonModule, RouterModule, NzImageModule, NzGridModule, NzMenuModule],
 })
-export class PhotographyPortfolioModule { }
+export class PhotographyPortfolioModule {}

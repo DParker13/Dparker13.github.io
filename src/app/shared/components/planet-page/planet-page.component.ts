@@ -1,9 +1,26 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { zIndex } from 'src/app/app.component';
-import { trigger, state, style, animate, transition, animateChild, query, group } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  animateChild,
+  query,
+  group,
+} from '@angular/animations';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter, delay, of } from 'rxjs';
+import { Subscription, filter } from 'rxjs';
 import { PageEvent, PagesService } from '../../services/pages/pages.service';
+import { IPlanetPage } from '../../interfaces/planet-page.interface';
 
 @Component({
   selector: 'app-planet-page',
@@ -11,46 +28,60 @@ import { PageEvent, PagesService } from '../../services/pages/pages.service';
   styleUrl: './planet-page.component.less',
   animations: [
     trigger('interact', [
-      state('idle',
-        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}}', left: '{{left}}'}),
-        {params: {left: 0, endRotation: 0}}),
-      state('hover',
-        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale(1.05)', left: '{{left}}'}),
-        {params: {left: 0, endRotation: 0}}),
-      state('clicked',
-        style({transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale({{scale}})', left: '50vw' }),
-        {params: {scale: 0, endRotation: 0}}),
+      state(
+        'idle',
+        style({ transform: 'translate3d(-50%, -50%, 0) {{endRotation}}', left: '{{left}}' }),
+        { params: { left: 0, endRotation: 0 } },
+      ),
+      state(
+        'hover',
+        style({
+          transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale(1.05)',
+          left: '{{left}}',
+        }),
+        { params: { left: 0, endRotation: 0 } },
+      ),
+      state(
+        'clicked',
+        style({
+          transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale({{scale}})',
+          left: '50vw',
+        }),
+        { params: { scale: 0, endRotation: 0 } },
+      ),
       transition('idle <=> hover', animate('0.75s cubic-bezier(0, 0.2, 0.256, 1.55)')),
-      transition('hover => clicked',
-        group([
-          animate('1.5s ease-in-out'),
-          query('@fadeInOut', animateChild()),
-      ])),
-      transition('clicked => idle', group([
-        animate('1.5s ease-in-out'),
-        query('@fadeInOut', animateChild()),
-      ]))
+      transition(
+        'hover => clicked',
+        group([animate('1.5s ease-in-out'), query('@fadeInOut', animateChild())]),
+      ),
+      transition(
+        'clicked => idle',
+        group([animate('1.5s ease-in-out'), query('@fadeInOut', animateChild())]),
+      ),
     ]),
     trigger('rotation', [
-      state('off-screen', style({transform: 'rotate(-180deg)'})),
-      state('on-screen', style({transform: '{{endRotation}}'}), {params: {endRotation: 'rotate(0deg)'}}),
-      transition('off-screen => on-screen', [
-        group([
-          query('@fadeInOut', animateChild()),
-          animate('2s {{delay}}s ease-out')
-        ])
-      ], {params: {delay: 1}})
+      state('off-screen', style({ transform: 'rotate(-180deg)' })),
+      state('on-screen', style({ transform: '{{endRotation}}' }), {
+        params: { endRotation: 'rotate(0deg)' },
+      }),
+      transition(
+        'off-screen => on-screen',
+        [group([query('@fadeInOut', animateChild()), animate('2s {{delay}}s ease-out')])],
+        { params: { delay: 1 } },
+      ),
     ]),
     trigger('fadeInOut', [
-      state('invisible', style({ opacity: 0})),
-      state('visible', style({ opacity: 1})),
-      transition('invisible => visible', animate('2s {{delay}}s ease-out'), { params: {delay: 1}}),
-      transition('visible => invisible', animate('0.25s ease-out'))
+      state('invisible', style({ opacity: 0 })),
+      state('visible', style({ opacity: 1 })),
+      transition('invisible => visible', animate('2s {{delay}}s ease-out'), {
+        params: { delay: 1 },
+      }),
+      transition('visible => invisible', animate('0.25s ease-out')),
     ]),
-  ]
+  ],
 })
-export class PlanetPageComponent implements IPlanetPage {
-  @Input() color: string = "#FFFFFF";
+export class PlanetPageComponent implements IPlanetPage, OnInit, AfterViewInit, OnDestroy {
+  @Input() color: string = '#FFFFFF';
   @Input() size: number = 10;
   @Input() orbit: number = 50;
   @Input() textHeight: number = 0.5;
@@ -61,7 +92,7 @@ export class PlanetPageComponent implements IPlanetPage {
   @Input() landSrc?: string = '../../../../assets/planets/images/earth/earth-land.svg';
   @Input() cloudSrc?: string = '../../../../assets/planets/images/earth/earth-clouds.svg';
   @Input() showClouds: boolean = true;
-  
+
   openSubscriptions$: Subscription[];
 
   rotationState: 'off-screen' | 'on-screen';
@@ -71,38 +102,44 @@ export class PlanetPageComponent implements IPlanetPage {
   shadowZIndex: number = zIndex.shadowPlanet;
   planetZIndex: number = zIndex.backgroundPlanet;
 
-  constructor(private pageService$: PagesService, private router: Router, private cdr: ChangeDetectorRef) {
-    // Convert the hexadecimal string to a number
-    const hexNumber: number = parseInt(this.color.substring(1), 16);
-    this.rotationState = 'off-screen'
+  constructor(
+    private pageService$: PagesService,
+    private router: Router,
+    private cdr: ChangeDetectorRef,
+  ) {
+    this.rotationState = 'off-screen';
     this.openSubscriptions$ = [];
   }
 
   ngOnInit() {
     //Subscribes to page open or close events
-    this.openSubscriptions$.push(this.pageService$.pageEvent.subscribe((event: PageEvent) => {
-      this.resetState(event.state);
-    }));
+    this.openSubscriptions$.push(
+      this.pageService$.pageEvent.subscribe((event: PageEvent) => {
+        this.resetState(event.state);
+      }),
+    );
 
     //Subscribes to router change events and will update animation/page states if the routes match
-    this.openSubscriptions$.push(this.router.events
-    .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-    .subscribe((event: NavigationEnd) => {
-      var url = event.urlAfterRedirects;
+    this.openSubscriptions$.push(
+      this.router.events
+        .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
+          const url = event.urlAfterRedirects;
 
-      // Check if the route matches the this planet's route
-      if (url.includes(this.route)) {
-        this.animationState = 'clicked';
-        this.titleState = 'invisible';
-        this.rotationState = 'on-screen';
-        this.pageService$.emitPageEvent({state: 'opened', color: this.color} as PageEvent);
-        this.updateZIndex();
-      }
-    }));
+          // Check if the route matches the this planet's route
+          if (url.includes(this.route)) {
+            this.animationState = 'clicked';
+            this.titleState = 'invisible';
+            this.rotationState = 'on-screen';
+            this.pageService$.emitPageEvent({ state: 'opened', color: this.color } as PageEvent);
+            this.updateZIndex();
+          }
+        }),
+    );
   }
 
   ngAfterViewInit() {
-    setTimeout( () => {
+    setTimeout(() => {
       this.rotationState = 'on-screen';
       this.titleState = 'visible';
       this.cdr.detectChanges();
@@ -112,27 +149,27 @@ export class PlanetPageComponent implements IPlanetPage {
   ngOnDestroy() {
     this.openSubscriptions$.forEach((subscription: Subscription) => {
       if (subscription) {
-        console.log("Unsubscribing from " + subscription);
+        console.log('Unsubscribing from ' + subscription);
         subscription.unsubscribe();
       }
-    })
+    });
   }
 
   /**
    * Determine the rotation of the planet
-   * 
+   *
    * @param isNegative true if the planet should rotate in the opposite direction, false otherwise
    * @param rotation the angle to rotate the planet to, if provided
    * @returns the rotation to apply to the planet
    */
   getRotation(isNegative: boolean, rotation?: number): string {
-    var rot: number = this.rotation
-    
+    let rot: number = this.rotation;
+
     if (rotation !== undefined) {
-      rot = rotation
+      rot = rotation;
     }
 
-    if(isNegative) {
+    if (isNegative) {
       return `rotate(${rot * -1}deg)`;
     } else {
       return `rotate(${rot}deg)`;
@@ -146,11 +183,11 @@ export class PlanetPageComponent implements IPlanetPage {
 
   /**
    * Determine the orbit of the planet
-   * 
+   *
    * @returns the orbit to apply to the planet, in vw units
    */
   getOrbit(): string {
-    return `${this.orbit*2}vw`;
+    return `${this.orbit * 2}vw`;
   }
 
   // Format size in vw
@@ -164,7 +201,7 @@ export class PlanetPageComponent implements IPlanetPage {
 
   /**
    * Determine the alignment of the planet (sets the left position of the planet)
-   * 
+   *
    * @param orbit the orbit to use, if provided
    * @returns the left position of the planet, in vw units
    */
@@ -176,25 +213,6 @@ export class PlanetPageComponent implements IPlanetPage {
     }
   }
 
-  /**
-   * Converts a hexadecimal color to an RGB color format.
-   * @param hex The hexadecimal color string (starting with '#')
-   * @returns The RGB color format string (e.g. 'rgb(255, 0, 0)')
-   */
-  hexToRgb(hex: string): string {
-    // Convert hex to a base-10 integer
-    const bigint = parseInt(hex.substring(1), 16);
-
-    // Extract the R, G, and B channel values from the integer
-    const r = (bigint >> 16) & 255;
-    const g = (bigint >> 8) & 255;
-    const b = bigint & 255;
-
-    // Return the RGB format string
-    return `rgb(${r}, ${g}, ${b})`;
-  }
-
-  
   /**
    * Handles animation state and z-index when the planet element is moused over.
    * If the animation state is not already clicked, changes it to 'hover'.
@@ -233,7 +251,25 @@ export class PlanetPageComponent implements IPlanetPage {
     } else {
       this.planetZIndex = zIndex.backgroundPlanet; // background planet (index 3)
     }
-    console.log("z updated")
+    console.log('z updated');
+  }
+
+  /**
+   * Converts a hexadecimal color to an RGB color format.
+   * @param hex The hexadecimal color string (starting with '#')
+   * @returns The RGB color format string (e.g. 'rgb(255, 0, 0)')
+   */
+  hexToRgb(hex: string): string {
+    // Convert hex to a base-10 integer
+    const bigint = parseInt(hex.substring(1), 16);
+
+    // Extract the R, G, and B channel values from the integer
+    const r = (bigint >> 16) & 255;
+    const g = (bigint >> 8) & 255;
+    const b = bigint & 255;
+
+    // Return the RGB format string
+    return `rgb(${r}, ${g}, ${b})`;
   }
 
   /**
@@ -249,20 +285,9 @@ export class PlanetPageComponent implements IPlanetPage {
       this.titleState = 'visible';
       this.rotationState = 'on-screen';
 
-      setTimeout(() => { this.updateZIndex() }, 1500);
+      setTimeout(() => {
+        this.updateZIndex();
+      }, 1500);
     }
   }
-}
-
-export interface IPlanetPage {
-  color: string;
-  size: number;
-  orbit: number;
-  textHeight: number;
-  rotation: number;
-  route: string;
-  title: string;
-  landSrc?: string;
-  cloudSrc?: string;
-  showClouds: boolean;
 }

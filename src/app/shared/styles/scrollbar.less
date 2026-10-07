@@ -1,0 +1,28 @@
+.scrollbar() {
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #88888888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #55555573;
+  }
+
+  @media (max-width: 800px), (pointer: coarse) {
+    scrollbar-width: thin;
+    scrollbar-color: #88888888 #f1f1f1;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+  }
+}

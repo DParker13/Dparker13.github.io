@@ -10,11 +10,7 @@ import { NzImageModule } from 'ng-zorro-antd/image';
 
 @NgModule({
   declarations: [ImageCardComponentComponent],
-  imports: [
-    NzCardModule,
-    NzWaterMarkModule,
-    NzImageModule
-  ],
-  exports: [ImageCardComponentComponent]
+  imports: [NzCardModule, NzWaterMarkModule, NzImageModule],
+  exports: [ImageCardComponentComponent],
 })
-export class SharedModule { }
+export class SharedModule {}
