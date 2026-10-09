@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   Input,
@@ -26,32 +27,30 @@ import { IPlanetPage } from '../../interfaces/planet-page.interface';
   selector: 'app-planet-page',
   templateUrl: './planet-page.component.html',
   styleUrl: './planet-page.component.less',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('interact', [
-      state(
-        'idle',
-        style({ transform: 'translate3d(-50%, -50%, 0) {{endRotation}}', left: '{{left}}' }),
-        { params: { left: 0, endRotation: 0 } },
-      ),
+      state('idle', style({ transform: 'translate3d(-50%, -50%, 0) {{endRotation}}' }), {
+        params: { left: 0, endRotation: 0 },
+      }),
       state(
         'hover',
         style({
           transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale(1.05)',
-          left: '{{left}}',
         }),
         { params: { left: 0, endRotation: 0 } },
       ),
       state(
         'clicked',
         style({
-          transform: 'translate3d(-50%, -50%, 0) {{endRotation}} scale({{scale}})',
-          left: '50vw',
+          transform:
+            'translate3d(calc(50vw - {{left}} - 50%), -50%, 0) {{endRotation}} scale({{scale}})',
         }),
-        { params: { scale: 0, endRotation: 0 } },
+        { params: { scale: 0, left: '0vw', endRotation: 0 } },
       ),
       transition('idle <=> hover', animate('0.75s cubic-bezier(0, 0.2, 0.256, 1.55)')),
       transition(
-        'hover => clicked',
+        'idle => clicked, hover => clicked',
         group([animate('1.5s ease-in-out'), query('@fadeInOut', animateChild())]),
       ),
       transition(
@@ -133,6 +132,7 @@ export class PlanetPageComponent implements IPlanetPage, OnInit, AfterViewInit, 
             this.rotationState = 'on-screen';
             this.pageService$.emitPageEvent({ state: 'opened', color: this.color } as PageEvent);
             this.updateZIndex();
+            this.cdr.markForCheck();
           }
         }),
     );
@@ -142,7 +142,7 @@ export class PlanetPageComponent implements IPlanetPage, OnInit, AfterViewInit, 
     setTimeout(() => {
       this.rotationState = 'on-screen';
       this.titleState = 'visible';
-      this.cdr.detectChanges();
+      this.cdr.markForCheck();
     }, 200);
   }
 
@@ -284,9 +284,11 @@ export class PlanetPageComponent implements IPlanetPage, OnInit, AfterViewInit, 
       this.animationState = 'idle';
       this.titleState = 'visible';
       this.rotationState = 'on-screen';
+      this.cdr.markForCheck();
 
       setTimeout(() => {
         this.updateZIndex();
+        this.cdr.markForCheck();
       }, 1500);
     }
   }

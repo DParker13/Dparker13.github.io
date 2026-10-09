@@ -27,6 +27,7 @@
     [style.width]="getSize(size)"
     [style.height]="getSize(size)"
     [style.z-index]="planetZIndex"
+    [style.left]="alignPlanet()"
     [@interact]="{
       value: animationState,
       params: { scale: getScale(), left: alignPlanet(), endRotation: getRotation(true) },

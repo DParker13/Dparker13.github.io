@@ -2,22 +2,30 @@
   <section class="card">
     <app-project-page-header title="hot beAn engine"></app-project-page-header>
     <p>
-      Hot Bean Engine is a versatile C++ game engine I developed with a focus on performance,
+      Hot Bean Engine is a fairly "simple" C++ game engine I developed with a focus on performance,
       flexibility, and modern architecture principles. Built around a robust Entity Component System
-      (ECS), it enables rapid game development while maintaining clean separation between game logic
-      and engine systems.
+      (ECS), with a clean separation between game logic and engine systems. This was a project I
+      undertook to deepen my understanding of game engine architecture and C++ programming. Because
+      of this project, I've been able to work on some of our legacy C++ code at my current job,
+      applying the knowledge and skills I gained from developing the Hot Bean Engine. My end goal
+      with this project is to create and publish a game developed using this engine.
+    </p>
+    <p>
+      I've worked on this game engine for several years at this point. Over that time, I have used AI
+      tools to assist with learning C++. I've also used AI to act as a coding mentor, asking questions
+      when I needed help with best practices or any errors I run into. I tried to keep code generation
+      from AI to a minimum, using it primarily for guidance and learning rather than direct implementation.
     </p>
     <p>
       The engine features a modular component-based architecture where game objects are composed of
       various components like physics bodies, colliders, textures, and input controllers. This is
-      complemented by a powerful system framework that processes components according to specific
+      complemented by a system framework that processes components according to specific
       signatures. This engine includes default, integrated physics (via Box2D), 2D rendering
-      capabilities, event handling, and an intuitive editor interface built with ImGui that allows
+      capabilities, event handling, and an editor interface built with ImGui that allows
       runtime inspection and modification of all game elements.
     </p>
     <p>
-      What sets the Hot Bean Engine apart is its balance between performance and usability. The
-      engine implements optimized memory layouts with sparse sets for component storage, advanced
+      The engine implements optimized memory layouts with sparse sets for component storage, advanced
       template metaprogramming for type-safe operations, and carefully designed APIs that make game
       development intuitive without sacrificing flexibility. Whether you're creating a simple
       prototype or a complex game, Hot Bean Engine provides the tools and architecture to bring your
@@ -25,7 +33,7 @@
     </p>
     <div>
       <img
-        src="../../../../assets/images/game_engine/engine_example_1.gif"
+        src="../../../../assets/images/game_engine/engine_example_1.webp"
         alt="Hot Bean Engine Example 1"
       />
     </div>
@@ -35,8 +43,9 @@
     </p>
     <a
       class="page-link"
-      [routerLink]="'dev-log'"
-      ><h2>Poly Solace Dev Log</h2></a
-    >
+      href="https://dparker13.github.io/Hot-Bean-Game-Engine/index.html"
+      target="_blank"
+      ><h2>Doxygen Documentation</h2>
+      </a>
   </section>
 </div>

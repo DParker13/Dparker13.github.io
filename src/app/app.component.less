@@ -77,9 +77,11 @@
 }
 
 #section-blur {
-  transition: filter 2s ease-in-out;
+  display: block;
+  filter: none;
 }
 
 #section-blur.transition {
   filter: blur(10px);
+  transition: filter 0s 1.5s;
 }
